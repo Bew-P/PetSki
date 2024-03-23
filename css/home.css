@@ -1,0 +1,28 @@
+nav {
+    background-color: #4A3131;
+    margin-bottom: 0px;
+    color: #FFFFFF;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_left {
+    text-align: start;
+}
+
+.nav_right {
+    text-align: end;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+header {
+    color: #4A3131;
+    background-image: url("PngItem_5215669.png");
+    background-color: #FFD465;
+    height: 500px;
+}
