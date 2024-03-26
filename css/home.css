@@ -28,32 +28,38 @@ header {
     color: #4A3131;
     background-image: url("PngItem_5215669.png");
     background-color: #FFD465;
-    height: 500px;
+    height: auto;
     padding: 10px;
 }
 
 .OurProducts {
     background-color: #4A3131;
     color: #FFD465;
-    height: 250px;
+    height: auto;
     text-align: center;
     padding: 10px;
+    
+}
+
+.container_food {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .food{
-    float:inline-start;
-    padding: 10px;
-    margin: 10px;
+    flex-direction: column;
+    justify-content: center;
     width: 30%;
-    height: 110px;
-    border: solid #95A5A6 2px;
+    padding: 10px;
 }
 
 .pic {
-    margin: auto;
+    margin: 10px;
     width: 80px;
     height: 80px;
     border-radius: 15px;
+    border: solid #4A3131 4px;
 }
 
 .Best_Seller {
@@ -67,6 +73,11 @@ header {
 
 .BS_column {
     flex: 50%;
+}
+
+.Best_Seller a {
+    text-decoration: none;
+    color: #4A3131;
 }
 
 .promo {
