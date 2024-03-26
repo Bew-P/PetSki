@@ -26,10 +26,21 @@ nav a:hover {
 
 header {
     color: #4A3131;
-    background-image: url("PngItem_5215669.png");
+    background-image: url("/images/Home_BG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     background-color: #FFD465;
-    height: auto;
+    height: 900px;
     padding: 10px;
+}
+
+.btn_shop {
+    background-color: #BD3636;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    width: 150px;
 }
 
 .OurProducts {
@@ -56,9 +67,9 @@ header {
 
 .pic {
     margin: 10px;
-    width: 80px;
-    height: 80px;
-    border-radius: 15px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
     border: solid #4A3131 4px;
 }
 
