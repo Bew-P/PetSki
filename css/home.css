@@ -3,6 +3,8 @@ nav {
     padding: 0px;
     color: #FFFFFF;
     overflow: hidden;
+    position: sticky;
+    top: 0;
 }
 
 .nav_left {
@@ -30,10 +32,25 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    /*background-attachment: fixed;*/
     background-color: #FFD465;
-    height: 900px;
+    height: 750px;
     padding: 10px;
 }
+
+header h2{
+    font-size: 50px;
+    margin-bottom: 0%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+header h1{
+    font-size:110px;
+    margin-top: 0%;
+    margin-left: 5%;
+}
+
 
 .btn_shop {
     background-color: #BD3636;
@@ -67,8 +84,8 @@ header {
 
 .pic {
     margin: 10px;
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: solid #4A3131 4px;
 }
@@ -117,8 +134,11 @@ header {
     width: 33.3%;
 }
 
-.shop_button {
-    text-align: center;
+.btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
 }
 
 footer {
