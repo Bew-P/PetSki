@@ -31,6 +31,11 @@ nav a:hover {
     color: #4A3131;
 }
 
+nav img {
+    width: 55px;
+    height: 55px;
+}
+
 header {
     color: #4A3131;
     background-image: url("/images/Home_BG.png");
