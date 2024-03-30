@@ -32,8 +32,13 @@ nav a:hover {
 }
 
 nav img {
-    width: 55px;
-    height: 55px;
+    margin-left: 10px;
+    height: 48px;
+}
+
+.navicon {
+    padding: 0px;
+    margin: 0px;
 }
 
 header {
@@ -70,7 +75,7 @@ header h1{
     border: none;
     font-weight: bold;
     border-radius: 30vw;
-    padding: 1.7vw;
+    padding: 1.2vw;
     font-size: 2vw;
 }
 
@@ -95,7 +100,7 @@ header button{
 }
 
 .OurProducts i {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .container_food {

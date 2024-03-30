@@ -111,9 +111,14 @@ button {
 
 }
 
+.container {
+    min-height: 100vh;
+}
+
 footer {
     background-color: #4A3131;
     padding: 2vw;
     text-align: center;
     color: #FFFFFF;
+    margin-top: auto;
 }
