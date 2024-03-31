@@ -19,6 +19,8 @@ nav {
 
 .nav_right {
     float: right;
+    font-size: 22px;
+    padding: 7px 16px;
 }
 
 nav a {
@@ -34,11 +36,6 @@ nav a:hover {
 nav img {
     margin-left: 10px;
     height: 48px;
-}
-
-.navicon {
-    padding: 0px;
-    margin: 0px;
 }
 
 header {
@@ -77,6 +74,10 @@ header h1{
     border-radius: 30vw;
     padding: 1.2vw;
     font-size: 2vw;
+}
+
+.btn_shop:hover {
+    background-color: #ca9a9a;
 }
 
 header button{

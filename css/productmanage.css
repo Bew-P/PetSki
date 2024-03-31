@@ -19,6 +19,8 @@ nav {
 
 .nav_right {
     float: right;
+    font-size: 22px;
+    padding: 7px 16px;
 }
 
 nav a {
@@ -29,6 +31,11 @@ nav a {
 nav a:hover {
     background-color: #FFFFFF;
     color: #4A3131;
+}
+
+nav img {
+    margin-left: 10px;
+    height: 48px;
 }
 
 .menu {
