@@ -1,3 +1,53 @@
 *{
-  font-family: 
+  
+    font-family: Poppins,Helvetica,sans-serif;
+    margin: 0px;
+    text-decoration: none;
+  
 }
+
+/* header{
+
+} */
+
+nav {
+  background-color: #4A3131;
+  padding: 0px;
+  color: #FFFFFF;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+}
+
+.nav_left {
+  float: left;
+}
+
+.nav_right {
+  float: right;
+  font-size: 22px;
+  padding: 7px 16px;
+}
+
+nav a {
+  padding: 12px 16px;
+  color: #FFFFFF;
+}
+
+nav a:hover {
+  background-color: #FFFFFF;
+  color: #4A3131;
+}
+
+nav img {
+  margin-left: 10px;
+  height: 48px;
+}
+
+footer {
+  background-color: #4A3131;
+  padding: 2vw;
+  text-align: center;
+  color: #FFFFFF;
+}
+
