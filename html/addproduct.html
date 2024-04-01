@@ -2,13 +2,99 @@
 <html lang="en">
   <head>
     <title>New product</title>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel ="stylesheet" href="/css/addproduct.css">
   </head>
-<body>
-  <nav> </nav>
-  <container>
-    <h2>New Product</h2>
-    <h6>Only for admin and staff</h6>
-  </container>
-</body>
+
+  <body>
+    <nav>
+      <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+      <a href="home.html" name="home" class="nav_left">HOME</a>
+      <a href="product.html" name="product" class="nav_left">PRODUCT</a>
+      <a href="team.html" name="about_as" class="nav_left">ABOUT US</a>
+      <a href="" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+      <a href="adminmanage.html" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
+  </nav>
+  <main>
+    <!-- <h2 id = "newpd">New Product</h2> -->
+    <form class="" action="/" method="">
+      <fieldset id="form">
+        <legend><h2> New Product</h2></legend>
+        <h5>Only for admin and staff</h5>
+        <label for="id" >ID: </label>
+        <input type="idnumber" name="id" required><br>
+
+        <label for="name" >Name: </label>
+        <input type="text" name="name" required><br>
+
+        <label for="category">Category: </label>
+        <select class="pet_category" name="Pet_choice" required>
+          <option selected>Choose</option>
+          <option value="Dog">Dog</option>
+          <option value="Cat">Cat</option>
+          <option value="Fish">Fish</option>
+          <option value="Bird">Bird</option>
+          <option value="Rabbit">Rabbit</option>
+          <option value="Turtle">Turtle</option>
+        </select><br>
+
+        <label for="brand">Brand: </label>
+        <select class="brand" name="brand_choice" required>
+          <option selected>Choose</option>
+          <option value="Royal_canin">Royal Canin</option>
+          <option value="Pedigree">Pedigree</option>
+          <option value="Whiskas">Whiskas</option>
+          <option value="Hill's">Hill's</option>
+          <option value="Smartheart">SmartHeart</option>
+          <option value="Owbow">Owbow</option>
+          <option value="Sakura">Sakura</option>
+          <option value="Prestige">Prestige</option>
+          <option value="Optimum">Optimum</option>
+          <option value="Mazuri">Mazuri</option>
+        </select><br>
+
+        <label for="flavor">Flavor: </label>
+        <select class="flavor" name="flavor_choice" required>
+          <option selected>Choose</option>
+          <option value="Beef">Beef</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Pork">Pork</option>
+          <option value="Fish">Fish</option>
+        </select><br>
+
+        <label for="type">Type: </label>
+        <select class="type" name="type_choice" required>
+          <option selected>Choose</option>
+          <option value="Dry">Dry</option>
+          <option value="Wet">Wet</option>
+          <option value="Diet">Veterinarydiet</option>
+        </select><br>
+
+        <label for="price" name="price" >Price: </label>
+        <input type ="number" name="price" required><br>
+
+        <label for="quantity" name="quantity" >Quantity: </label>
+        <input type="number" name="quantity" required><br>
+
+        <label for="image" name="pic" >Image: </label>
+        <input ><br>
+        <button type="add">ADD</button>
+
+      </fieldset>
+    </form>
+  </main>
+
+  </body>
+  
+    
+  <footer>
+    <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
+    <br><h5>THANK YOU FOR YOUR MONEY</h5>
+  </footer>
+
+
   
 </html>
