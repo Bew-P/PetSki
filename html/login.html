@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/login.css">
     <title>Admin_login_page</title>
 </head>
@@ -16,8 +17,8 @@
         <a href="home.html" name="home" class="nav_left">HOME</a>
         <a href="product.html" name="product" class="nav_left">PRODUCT</a>
         <a href="team.html" name="about_as" class="nav_left">ABOUT US</a>
-        <a href="" name="admin" class="nav_right"><img src="" alt="admin icon"></a>
-        <a href="adminmanage.html" name="edit" class="nav_right"><img src="" alt="admin editing icon"></a>
+        <a href="login.html" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+        <a href="adminmanage.html" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
     </nav>
 
     <div class="login_container">
@@ -26,8 +27,8 @@
             <h1>Admin Login</h1>
             <p>Only for admin and staff</p><br/>
             <div class=form_container>
-                <label for="Username"><b>Email/Username</b></label>
-                <input type="email,text" placeholder="Enter Email or Username" name="Username" required>
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" name="email" required>
                 <label for="Password"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="Password" required>
                 <button type="submit">Login</button>

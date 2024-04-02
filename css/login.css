@@ -58,28 +58,28 @@ nav img {
 }
 
 .login_container form h1 {
-    font-size: 70px;
+    font-size: 27px;
 }
 
 .login_container form p {
     font-size: 20px;
 }
 .login_container form div {
-    font-size: 26px;
+    font-size: 20px;
 }
 
-.login_container input[type="email,text"] {
+.login_container input[type="email"] {
     background-color:lightgrey;
     border-radius: 11px; 
     padding: 10px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .login_container input[type="password"] {
   background-color:lightgrey;
   border-radius: 11px; 
   padding: 10px; 
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .form_container {
@@ -96,7 +96,7 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 26px;
+    font-size: 20px;
     margin-top: 16px;
   }
 

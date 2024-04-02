@@ -5,16 +5,6 @@
   text-decoration: none;
 }
 
-header {
-  background-color: #FFFFFF;
-  padding: 20px;
-  text-align: center;
-}
-header h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
 nav {
   background-color: #4A3131;
   padding: 0px;
@@ -30,6 +20,8 @@ nav {
 
 .nav_right {
   float: right;
+  font-size: 22px;
+  padding: 7px 16px;
 }
 
 nav a {
@@ -43,8 +35,18 @@ nav a:hover {
 }
 
 nav img {
-  width: 55px;
-  height: 55px;
+  margin-left: 10px;
+  height: 48px;
+}
+
+header {
+  background-color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 h1,h3{
@@ -81,7 +83,7 @@ main {
   flex-direction: row;
   font-size: 25px;
   gap: 50px;
-  width: 85%;
+  width: 90%;
 }
 
 /* Team member*/
@@ -90,7 +92,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   margin: 20px auto;
-  width: 80%;
+  width: 90%;
 }
 
 .team-member {
@@ -100,9 +102,9 @@ main {
   flex-direction: column;
   align-items: center;
   margin: 10px;
-  padding: 20px;
+  padding: 5px;
   text-align:justify;
-  width:10%;
+  width:20%;
 }
 
 .team-member img {
