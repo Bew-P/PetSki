@@ -1,15 +1,88 @@
 *{
+  font-family: Poppins,Helvetica,sans-serif;
+  text-decoration: none;
   
-    font-family: Poppins,Helvetica,sans-serif;
-    margin: 0px;
-    text-decoration: none;
-  
+  /* background-color: #FFD465; */
 }
 
 /* header{
 
 } */
+#h2{
+  margin: auto;
+  /* border-style: solid; */
+  /* border-radius: 50px; */
+  /* border-color: white; */
+  text-align: left;
+  
+}
 
+#h5{
+  text-decoration-color: gray;
+
+}
+/* #form{
+  margin: auto;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: white;
+  width: 75%;
+  text-align:justify;
+  word-spacing: 50px;
+} */
+
+#idform{
+  width: 70%;
+  margin: 50px;
+  background-color: #FFFFFF;
+  text-align: left;
+  padding: 30px;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+#formC{
+  width: 100%;
+  padding: 40px;
+  /* margin: 50%; */
+}
+.rows{
+  width: 80%;
+  display:block;
+  
+}
+.column{
+  width:100%;
+  display: inline-block;
+  margin: 5px;
+}
+.theLabels{
+  width:30%;
+  float:left;
+}
+.theInputs{
+  width:60%;
+  float:right;
+}
+.button{
+  background-color: #FFD465;
+  border :none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin: 7px;
+
+}
+
+main{
+  background-color: #FFD465;
+  display: flex;
+  flex-direction: column; /* Enable flexbox layout */
+  justify-content: center;
+  align-items: center;
+}
 nav {
   background-color: #4A3131;
   padding: 0px;
