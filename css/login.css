@@ -19,6 +19,8 @@ nav {
 
 .nav_right {
     float: right;
+    font-size: 22px;
+    padding: 7px 16px;
 }
 
 nav a {
@@ -32,8 +34,8 @@ nav a:hover {
 }
 
 nav img {
-    width: 55px;
-    height: 55px;
+    margin-left: 10px;
+    height: 48px;
 }
 
 .login_container{
@@ -46,7 +48,7 @@ nav img {
 
 .login_container img{
     width: 50%;
-    height: 1000px;
+    height: 700px;
 }
 .login_container form {
     display: flex;
@@ -54,7 +56,7 @@ nav img {
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 1000px;
+    height: 700px;
 }
 
 .login_container form h1 {
@@ -70,6 +72,7 @@ nav img {
 
 .login_container input[type="email"] {
     background-color:lightgrey;
+    border: none;
     border-radius: 11px; 
     padding: 10px;
     font-size: 20px;
@@ -77,6 +80,7 @@ nav img {
 
 .login_container input[type="password"] {
   background-color:lightgrey;
+  border: none;
   border-radius: 11px; 
   padding: 10px; 
   font-size: 20px;
