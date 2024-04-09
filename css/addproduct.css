@@ -1,88 +1,85 @@
-*{
-  font-family: Poppins,Helvetica,sans-serif;
+
+* {
+  font-family: 'Poppins',sans-serif;
   text-decoration: none;
-  
-  /* background-color: #FFD465; */
 }
 
-/* header{
-
-} */
-#h2{
-  margin: auto;
-  /* border-style: solid; */
-  /* border-radius: 50px; */
-  /* border-color: white; */
-  text-align: left;
-  
+body {
+  margin: 0;
 }
 
-#h5{
-  text-decoration-color: gray;
-
+#h2, #h5 {
+  margin-left: 150px;
 }
-/* #form{
-  margin: auto;
-  border-style: solid;
-  border-radius: 20px;
-  border-color: white;
-  width: 75%;
-  text-align:justify;
-  word-spacing: 50px;
-} */
 
-#idform{
+#idform {
   width: 70%;
-  margin: 50px;
+  margin-right: auto;
+  margin-left: auto;
   background-color: #FFFFFF;
   text-align: left;
   padding: 30px;
   padding-top: 50px;
   padding-left: 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-#formC{
-  width: 100%;
-  padding: 40px;
-  /* margin: 50%; */
-}
-.rows{
+#formC {
   width: 80%;
-  display:block;
-  
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 20px;
 }
-.column{
-  width:100%;
+
+.rows {
+  width: 80%;
+  display: block;
+}
+
+.column {
+  width: 100%;
   display: inline-block;
   margin: 5px;
+  margin-top: 20px;
 }
-.theLabels{
-  width:30%;
-  float:left;
+
+.theLabels {
+  width: 30%;
+  float: left;
 }
-.theInputs{
-  width:60%;
-  float:right;
-}
-.button{
-  background-color: #FFD465;
-  border :none;
-  color: black;
+
+.theInputs {
+  background-color: #D9D9D9;
+  border-radius: 10px;
   padding: 10px;
+  border: none;
+  width: 60%;
+  float: right;
+}
+
+.button {
+  /* margin: 0 auto; */
+  /* display: inline-flex; */
+  background-color: #FF8862;
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  width: 90px;
   text-align: center;
-  display: inline-block;
   font-size: 15px;
-  margin: 7px;
-
+  margin-top: 20px;
+  margin-left: 150px;
 }
 
-main{
+.button:hover {
+  background-color: #6A67FF;
+}
+
+main {
   background-color: #FFD465;
-  display: flex;
-  flex-direction: column; /* Enable flexbox layout */
-  justify-content: center;
-  align-items: center;
 }
+
 nav {
   background-color: #4A3131;
   padding: 0px;
@@ -122,5 +119,39 @@ footer {
   padding: 2vw;
   text-align: center;
   color: #FFFFFF;
+}
+
+@media screen and (max-width: 768px) {
+  #h2, #h5 {
+    margin-left: 20px;
+  }
+  
+  #idform {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  #formC {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .column {
+    width: 100%;
+    margin: 10px;
+  }
+  
+  .theLabels, .theInputs {
+    width: 100%;
+    float: none;
+  }
+  
+  .button {
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
 }
 
