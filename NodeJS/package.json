@@ -1,0 +1,17 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "file1.js",
+  "scripts": {
+    "start": "nodemon file1.js"
+  },
+  "author": "PetSki",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.4",
+    "nodemon": "^3.1.0"
+  }
+}
