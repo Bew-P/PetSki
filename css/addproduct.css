@@ -62,14 +62,14 @@ body {
   /* display: inline-flex; */
   background-color: #FF8862;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   color: rgb(255, 255, 255);
   padding: 10px;
-  width: 90px;
+  width: 300px;
   text-align: center;
   font-size: 15px;
-  margin-top: 20px;
-  margin-left: 150px;
+  margin-top: 40px;
+  margin-left: 250px;
 }
 
 .button:hover {
