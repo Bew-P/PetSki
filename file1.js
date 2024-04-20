@@ -2,10 +2,33 @@ const express = require('express');
 const path = require('path')
 const port=3000
 const app = express();
+//Import and use Environmental varaiable
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 /* Create a router object and register the router */
 const router = express.Router();
 app.use(router)
+
+//connection to Mysql
+const mysql = require('mysql2');
+var connection = mysql.createConnection(
+    {
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USERNAME,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE
+    }
+);
+
+//connect to DB
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log(`Connected DB : ${process.env.MYSQL_DATABASE} `);
+})
+
+
 
 /* Set the static file directory */
 app.use('/', express.static(path.join(__dirname,'public')));
