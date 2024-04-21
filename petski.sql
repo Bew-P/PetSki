@@ -5,6 +5,7 @@ CREATE DATABASE IF NOT EXISTS petski;
 USE petski;
 
 CREATE TABLE Admininfo (
+	id				CHAR(7) NOT NULL,
 	fname 			VARCHAR(50)	NOT NULL,
     lname			VARCHAR(50)	NOT NULL,
     address 		VARCHAR(100)	NOT NULL,
@@ -15,22 +16,22 @@ CREATE TABLE Admininfo (
 );
 
 INSERT INTO Admininfo
-VALUES ('Sakhunich','Iamcharas','Nakhon Pathom,Thailand','20','Sakhunich.iam@gmail.com','bam0229457'),
-('Vichaya','Chongthanapipat','Bangkok,Thailand','19','Vichaya.cho@gmail.com','ungink1687'),
-('Chanaphimon','Chunchaowarit','Nakhon Pathom,Thailand','20','Chanaphimon.chu@gmail.com','pin1698430'),
-('Pakjira','Kharphodee','Nonthaburi,Thailand','20','Pakjira.Kha@gmail.com','bew1756217'),
-('Taylor','Swift','Bangkok,Thailand','34','Taylor.swi@gmail.com','taylor1369'),
-('Christian','Harper','Manhattan, New York, United States','32','Christian.har@gmail.com','Chris90572'),
-('Alex','Volkov','Washington, D.C., United States','34','Alex.vol@gmail.com','Alex894618'),
-('Isabella','Young','New York City, New York, United States','27','Isabella@gmail.com','Isabe926310'),
-('Ava','Chen','Bangkok,Thailand','26','Ava.chen@gmail.com','Ava8961525'),
-('Lucy','Foster','Bangkok,Thailand','30','Lucy.fos@gmail.com','Lucy936293');
+VALUES ('6588022','Sakhunich','Iamcharas','Nakhon Pathom,Thailand','20','Sakhunich.iam@gmail.com','bam0229457'),
+('6588168','Vichaya','Chongthanapipat','Bangkok,Thailand','19','Vichaya.cho@gmail.com','ungink1687'),
+('6588169','Chananphimon','Chunchaowarit','Nakhon Pathom,Thailand','20','Chanaphimon.chu@gmail.com','pin1698430'),
+('6588175','Pakjira','Kharphodee','Nonthaburi,Thailand','20','Pakjira.Kha@gmail.com','bew1756217'),
+('6313576','Taylor','Swift','Bangkok,Thailand','34','Taylor.swi@gmail.com','taylor1369'),
+('4957534','Christian','Harper','Manhattan, New York, United States','32','Christian.har@gmail.com','Chris90572'),
+('0135734','Alex','Volkov','Washington, D.C., United States','34','Alex.vol@gmail.com','Alex894618'),
+('7323515','Isabella','Young','New York City, New York, United States','27','Isabella@gmail.com','Isabe926310'),
+('0552413','Ava','Chen','Bangkok,Thailand','26','Ava.chen@gmail.com','Ava8961525'),
+('7452373','Lucy','Foster','Bangkok,Thailand','30','Lucy.fos@gmail.com','Lucy936293');
 
 
 CREATE TABLE Adminlogin (
 	Admin_email		VARCHAR(30) NOT NULL,
     Admin_pw		VARCHAR(12) NOT NULL,
-    -- CONSTRAINT PK_Card_No PRIMARY KEY(Card_No),
+    
     CONSTRAINT FK_Admin_email FOREIGN KEY(Admin_email) REFERENCES Admininfo(Admin_email)
 );
 
