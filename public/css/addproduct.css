@@ -58,8 +58,6 @@ body {
 }
 
 .button {
-  /* margin: 0 auto; */
-  /* display: inline-flex; */
   background-color: #FF8862;
   border: none;
   border-radius: 12px;
@@ -69,7 +67,8 @@ body {
   text-align: center;
   font-size: 15px;
   margin-top: 40px;
-  margin-left: 250px;
+  margin-left: 150px;
+  margin-bottom: 40px;
 }
 
 .button:hover {
