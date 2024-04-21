@@ -2,10 +2,33 @@ const express = require('express');
 const path = require('path')
 const port=3000
 const app = express();
+//Import and use Environmental varaiable
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 /* Create a router object and register the router */
 const router = express.Router();
 app.use(router)
+
+//connection to Mysql
+const mysql = require('mysql2');
+var connection = mysql.createConnection(
+    {
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USERNAME,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE
+    }
+);
+
+//connect to DB
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log(`Connected DB : ${process.env.MYSQL_DATABASE} `);
+})
+
+
 
 /* Set the static file directory */
 app.use('/', express.static(path.join(__dirname,'public')));
@@ -19,6 +42,19 @@ router.get('/home', (req, res) => {
 router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
+
+router.post('/product-submit', (req,res) => {
+    let sql = `SELECT * FROM Petdata WHERE Pet_Category = ${req.query.search_pet}`;
+    connection.query(sql, function(error, results){
+        if (error) throw error;
+        if (results.length == 0) {
+            console.log(`Search Not found`);
+        } else{
+            console.log(`Search ${results.length} rows returned Found`);
+            return res.send(results);
+        }
+    });
+});
 
 router.get('/productdetail', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/productdetail.html`))
