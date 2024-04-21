@@ -12,7 +12,8 @@ const router = express.Router();
 app.use(router)
 
 router.use(express.json());
-router.use(express.urlencoded({ extended: true}));
+router.use(express.urlencoded({ extended: true }));
+
 
 //connection to Mysql
 const mysql = require('mysql2');
@@ -46,18 +47,41 @@ router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
 
-router.get('/product-submit', (req,res) => {
-    let pet = req.query.search_pet
-    connection.query('SELECT * FROM Petdata WHERE Pet_Category = ?', [pet], function(error, results){
-        if (error) throw error;
-        if (results.length == 0) {
-            console.log(`Search Not found`);
-        } else{
-            console.log(`Search ${results.length} rows returned Found`);
-            return res.send(results);
+router.post('/product-submit', (req, res) => {
+    let { search_pet, search_brand, search_flavor, search_type } = req.body;
+
+    // Constructing the SQL query with dynamic conditions
+    let sql = `SELECT * FROM Petdata WHERE 1`;
+
+    // Adding conditions for search parameters if they are provided
+    if (search_pet) {
+        sql += ` AND Pet_Category = '${search_pet}'`;
+    }
+    if (search_brand) {
+        sql += ` AND Brand = '${search_brand}'`;
+    }
+    if (search_flavor) {
+        sql += ` AND Flavor = '${search_flavor}'`;
+    }
+    if (search_type) {
+        sql += ` AND FoodType = '${search_type}'`;
+    }
+
+    connection.query(sql, function(error, results) {
+        if (error) {
+            console.error("Error querying database: ", error);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+        if (results.length === 0) {
+            console.log(`Search not found`);
+            return res.status(404).json({ message: "Search not found" });
+        } else {
+            console.log(`Search ${results.length} rows returned found`);
+            return res.status(200).json(results);
         }
     });
 });
+
 
 router.get('/productdetail', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/productdetail.html`))
