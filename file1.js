@@ -11,6 +11,9 @@ dotenv.config();
 const router = express.Router();
 app.use(router)
 
+router.use(express.json());
+router.use(express.urlencoded({ extended: true}));
+
 //connection to Mysql
 const mysql = require('mysql2');
 var connection = mysql.createConnection(
@@ -43,9 +46,9 @@ router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
 
-router.post('/product-submit', (req,res) => {
-    let sql = `SELECT * FROM Petdata WHERE Pet_Category = ${req.query.search_pet}`;
-    connection.query(sql, function(error, results){
+router.get('/product-submit', (req,res) => {
+    let pet = req.query.search_pet
+    connection.query('SELECT * FROM Petdata WHERE Pet_Category = ?', [pet], function(error, results){
         if (error) throw error;
         if (results.length == 0) {
             console.log(`Search Not found`);
