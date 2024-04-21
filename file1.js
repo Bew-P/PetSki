@@ -84,6 +84,14 @@ router.get('/productmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/productmanage.html`))
 })
 
+router.get('/addadmin', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/addadmin.html`))
+})
+
+router.get('/addproduct', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/addproduct.html`))
+})
+
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {
     console.log("404: Invalid accessed");
