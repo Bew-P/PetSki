@@ -32,8 +32,6 @@ connection.connect(function (err) {
     console.log(`Connected DB : ${process.env.MYSQL_DATABASE} `);
 })
 
-
-
 /* Set the static file directory */
 app.use('/', express.static(path.join(__dirname,'public')));
 
@@ -103,13 +101,26 @@ router.get('/adminmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/adminmanage.html`))
 })
 
+router.get('/productmanage', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/productmanage.html`))
+})
+
 router.get('/addproduct', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/addproduct.html`))
 })
 
-router.get('/productmanage', (req, res) => {
-    res.sendFile(path.join(`${__dirname}/html/productmanage.html`))
+router.get('/addadmin', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/addadmin.html`))
 })
+
+router.get('/editadmin', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/editadmin.html`))
+})
+
+router.get('/editproduct', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/editproduct.html`))
+})
+
 
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {

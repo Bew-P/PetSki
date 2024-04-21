@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Edit account</title>
+  <link rel="stylesheet" href="/css/addadmin.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+  <nav>
+    <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+    <a href="/home" name="home" class="nav_left">HOME</a>
+    <a href="/products" name="product" class="nav_left">PRODUCT</a>
+    <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
+    <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></a>
+    <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
+  </nav>
+  <main>
+    
+
+    <div id="idform">
+      <h2 id="h2"><b>Edit account</b></h2>
+      <h5 id="h5">Only for admin and staff</h5>
+      <form id="formC">
+        <div class="rows">
+          <div class="column">
+            <label class="theLabels">First Name: </label>
+            <input class="theInputs" type="text" name="first_name" required><br>
+
+          </div>
+          <div class="column">
+            <label class="theLabels">Last Name: </label>
+            <input class="theInputs" type="text" name="last_name" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabels">Email: </label>
+            <input class="theInputs" type="email" name="email" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabels">Password: </label>
+            <input class="theInputs" type="password" name="password" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabels">Confirm Password: </label>
+            <input class="theInputs" type="password" name="confirm_password" required><br>
+          </div>
+        </div>
+
+        
+      </form>
+      <button class="button" type="submit">EDIT</button>
+    </div>
+    
+  </main>
+
+</body>
+
+
+<footer>
+  <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
+  <br>
+  <h5>THANK YOU FOR YOUR MONEY</h5>
+</footer>
+
+</html>
