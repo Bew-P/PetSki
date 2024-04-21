@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>New product</title>
+  <link rel="stylesheet" href="/css/addproduct.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+  <nav>
+    <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+    <a href="/home" name="home" class="nav_left">HOME</a>
+    <a href="/products" name="product" class="nav_left">PRODUCT</a>
+    <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
+    <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+    <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
+  </nav>
+  <main>
+    
+
+    <div id="idform">
+      <h2 id="h2"><b>New Product</b></h2>
+      <h5 id="h5">Only for admin and staff</h5>
+      <form id="formC">
+        <div class="rows">
+          <div class="column">
+            <label class="theLabals">ID: </label>
+            <input class="theInputs" type="text" name="id" size="20" required><br>
+
+          </div>
+          <div class="column">
+            <label class="theLabals">Name: </label>
+            <input class="theInputs" type="text" name="name" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabals">Category: </label>
+            <select class="theInputs" name="Pet_choice" required>
+              <option selected>Choose</option>
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Fish">Fish</option>
+              <option value="Bird">Bird</option>
+              <option value="Rabbit">Rabbit</option>
+              <option value="Turtle">Turtle</option>
+            </select><br>
+          </div>
+          <div class="column">
+            <label class="theLabals">Brand: </label>
+            <select class="theInputs" name="brand_choice" required>
+              <option selected>Choose</option>
+              <option value="Royal_canin">Royal Canin</option>
+              <option value="Pedigree">Pedigree</option>
+              <option value="Whiskas">Whiskas</option>
+              <option value="Hill's">Hill's</option>
+              <option value="Smartheart">SmartHeart</option>
+              <option value="Owbow">Owbow</option>
+              <option value="Sakura">Sakura</option>
+              <option value="Prestige">Prestige</option>
+              <option value="Optimum">Optimum</option>
+              <option value="Mazuri">Mazuri</option>
+            </select><br>
+          </div>
+          <div class="column">
+            <label class="theLabals">Flavor: </label>
+            <select class="theInputs" name="flavor_choice" required>
+              <option selected>Choose</option>
+              <option value="Beef">Beef</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Pork">Pork</option>
+              <option value="Fish">Fish</option>
+              <option value="Other">Other</option>
+            </select><br>
+          </div>
+          <div class="column">
+            <label class="theLabals">Type: </label>
+            <select class="theInputs" name="type_choice" required>
+              <option selected>Choose</option>
+              <option value="Dry">Dry</option>
+              <option value="Wet">Wet</option>
+              <option value="Diet">Veterinarydiet</option>
+            </select><br>
+          </div>
+          <div class="column">
+            <label class="theLabals" name="price">Price: </label>
+            <input class="theInputs" type="text" name="price" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabals" name="quantity">Quantity: </label>
+            <input class="theInputs" type="text" name="quantity" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabals" for="image" name="pic">Image: </label>
+            <input class="theInputs" type="file" id="img" name="image" accept="image/*"><br>
+
+          </div>
+        </div>
+
+        
+      </form>
+      <button class="button" type="add">ADD</button>
+    </div>
+    
+  </main>
+
+</body>
+
+
+<footer>
+  <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
+  <br>
+  <h5>THANK YOU FOR YOUR MONEY</h5>
+</footer>
+
+
+
+</html>

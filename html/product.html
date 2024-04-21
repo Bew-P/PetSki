@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/product.css">
-    <title>product</title>
+    <title>Product list</title>
 </head>
 
 <body>
-
     <nav>
-        <img src="" alt="Logo" name="logo" class="nav_left">
-        <a href="#" name="home" class="nav_left">HOME</a>
-        <a href="#" name="product" class="nav_left">PRODUCT</a>
-        <a href="#" name="about_as" class="nav_left">ABOUT US</a>
-        <a href="#" name="admin" class="nav_right"><img src="" alt="admin icon"></a>
-        <a href="#" name="edit" class="nav_right"><img src="" alt="admin editing icon"></a>
+        <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+        <a href="/home" name="home" class="nav_left">HOME</a>
+        <a href="/products" name="product" class="nav_left">PRODUCT</a>
+        <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
+        <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+        <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
     </nav>
 
     <header>
@@ -23,59 +26,107 @@
 
 
     <div class="search-container">
-        <h3>FIND PRODUCT</h3>
+        <h3>Find Product</h3>
         <div class="search-row">
-            <!-- Two input boxes in each row -->
+
             <div class="input-row">
-                <!-- <div class="pet-rectangle">PET</div> -->
                 <input type="text" placeholder="PET">
                 <input type="text" placeholder="BRAND">
-            </div>
-            <div class="input-row">
                 <input type="text" placeholder="FLAVOR">
                 <input type="text" placeholder="TYPE">
             </div>
-            <!-- Search button in its own row -->
             <div class="button-row">
                 <button>Search</button>
             </div>
         </div>
     </div>
-    
 
+    <div class="product-container">
+        <div class="product-row">
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 1"></a>
+                <h2>Product 1</h2>
+                <p>2,350 THB</p>
+            </div>
 
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 2"></a>
+                <h2>Product 2</h2>
+                <p>2,350 THB</p>
+            </div>
 
-    <div class="product-list">
-        <div class="product">
-            <img src="productimg.png" alt="Product 1">
-            <h2>Product 1</h2>
-            <p>$10.99</p>
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 3"></a>
+                <h2>Product 3</h2>
+                <p>2,350 THB</p>
+            </div>
+
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 4"></a>
+                <h2>Product 4</h2>
+                <p>2,350 THB</p>
+            </div>
         </div>
 
-        <div class="product">
-            <img src="css/productimg.png" alt="Product 2">
-            <h2>Product 1</h2>
-            <p>$10.99</p>
+        <div class="product-row">
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 1"></a>
+                <h2>Product 1</h2>
+                <p>2,350 THB</p>
+            </div>
+
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg"alt="Product 2"></a>
+                <h2>Product 2</h2>
+                <p>2,350 THB</p>
+            </div>
+
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg"alt="Product 3"></a>
+                <h2>Product 3</h2>
+                <p>2,350 THB</p>
+            </div>
+
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 4"></a>
+                <h2>Product 4</h2>
+                <p>2,350 THB</p>
+            </div>
         </div>
 
-        <div class="product">
-            <img src="css/productimg.png" alt="Product 3">
-            <h2>Product 1</h2>
-            <p>$10.99</p>
-        </div>
+        <div class="product-row">
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 1"></a>
+                <h2>Product 1</h2>
+                <p>2,350 THB</p>
+            </div>
 
-        <div class="product">
-            <img src="css/productimg.png" alt="Product 4">
-            <h2>Product 1</h2>
-            <p>$10.99</p>
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 2"></a>
+                <h2>Product 2</h2>
+                <p>2,350 THB</p>
+            </div>
+
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 3"></a>
+                <h2>Product 3</h2>
+                <p>2,350 THB</p>
+            </div>
+
+            <div class="product">
+                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 4"></a>
+                <h2>Product 4</h2>
+                <p>2,350 THB</p>
+            </div>
         </div>
 
     </div>
 
-
-
-
-
+    <footer>
+        <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
+        <br>
+        <h5>THANK YOU FOR YOUR MONEY</h5>
+    </footer>
 
 </body>
 

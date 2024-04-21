@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/productdetail.css">
+    <title>Product detail</title>
+</head>
+
+<body>
+
+    <nav>
+        <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+        <a href="/home" name="home" class="nav_left">HOME</a>
+        <a href="/products" name="product" class="nav_left">PRODUCT</a>
+        <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
+        <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+        <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
+    </nav>
+
+    <div class="product-detail-container">
+        <img src="/images/Dog Food.jpeg" alt="product">
+        <div class="product-detail">
+            <h3 class="product-name">Royal Canin Labrador Retriever Puppy Dry Dog Food</h3>
+            <h2 class="product-price">2,350 THB</h2>
+            <!-- Details -->
+            <p class="detail">• Puppy Granulated dog food for puppies Labrador retriever under 15 months of age <br>
+                • Support your puppy's growth with a balanced diet rich in protein, calcium, and phosphorus for strong
+                bones. <br>
+                • Maintain a healthy weight with L-carnitine to metabolize fats for energy. <br>
+                • Ensure digestive health with proteins and LIP FOS MOS. <br>
+                • Boost natural immunity with vitamins C, E, taurine, and lutein, ideal for Labrador Retriever puppies
+                up to 15 months old. <br></p>
+            <!-- Quantity buttons -->
+            <div class="qty-input">
+                <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
+                <input class="product-qty" type="number" name="product-qty" min="0" max="100" value="1">
+                <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
+            </div>
+            <!-- Buy button -->
+            <button class="buy-button">Buy Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
+        <br>
+        <h5>THANK YOU FOR YOUR MONEY</h5>
+    </footer>
+
+
+</body>
+
+</html>

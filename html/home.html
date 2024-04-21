@@ -1,70 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="/css/home.css">
         <title>home</title>
     </head>
     <body>
         
         <nav>
-            <img src="" alt="Logo" name="logo" class="nav_left">
-            <a href="#" name="home" class="nav_left">HOME</a>
-            <a href="#" name="product" class="nav_left">PRODUCT</a>
-            <a href="#" name="about_as" class="nav_left">ABOUT US</a>
-            <a href="#" name="admin" class="nav_right"><img src="" alt="admin icon"></a>
-            <a href="#" name="edit" class="nav_right"><img src="" alt="admin editing icon"></a>
+            <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+            <a href="/home" name="home" class="nav_left">HOME</a>
+            <a href="/products" name="product" class="nav_left">PRODUCT</a>
+            <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
+            <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+            <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
         </nav>
 
         <header>
-            <h3>Welcome to</h3>
+            <h2>Welcome to</h2>
             <h1>PETSKI</h1>
-            <a href="#" name="shop_button"><h4>SHOP NOW</h4></a> 
+            <a href="product.html">
+            <button class="btn_shop">SHOP NOW</button>
+            </a>
         </header>
 
         <article class="container">
             <article class="OurProducts">
                 <h1>Our Products</h1><br>
-                <article class="food">
-                    <img src="" alt="Dog picture" class="pic">
-                    <section class="foodtype"><br>Dog foods</section>
-                </article>
-                <article class="food">
-                    <img src="" alt="Cat picture" class="pic">
-                    <section class="foodtype"><br>Cat foods</section>
-                </article>
-                <article class="food">
-                    <img src="" alt="Other animal picture" class="pic">
-                    <section class="foodtype"><br>Others</section>
-                </article>
-                <br><h6><i>"EVERY SNACK YOU MAKE, EVERY BITE YOU TAKE"<br>I'LL BE WATCHING YOU</i></h6>
+                <article class="container_food">
+                    <article class="food">
+                        <a href="product.html" name="dog-food" class="foodtype">
+                        <img src="/images/dog2.jpg" alt="Dog picture" class="pic">
+                        <br>Dog foods
+                        </a>
+                    </article>
+                    <article class="food">
+                        <a href="product.html" name="cat-food" class="foodtype">
+                        <img src="/images/cat2.jpg" alt="Cat picture" class="pic">
+                        <br>Cat foods
+                        </a>
+                    </article>
+                    <article class="food">
+                        <a href="product.html" name="other-food" class="foodtype">
+                        <img src="/images/other.jpg" alt="Other animal picture" class="pic">
+                        <br>Others
+                        </a>
+                    </article>
+                </article> 
+                <br><i>"EVERY SNACK YOU MAKE, EVERY BITE YOU TAKE"<br>I'LL BE WATCHING YOU</i>
             </article>
+            
             <article class="Best_Seller">
-                <h2><br>Best Seller<br>Product</h2>
-                <section>Description</section>
-                <img src="" alt="Best-Sell1_picture" class="best-sell_pic">
-                <img src="" alt="Best-Sell2_picture" class="best-sell-pic">
-                <a href="#" name="see-more_button"><h5>SEE MORE</h5></a>
+                <h1>Best Seller Product</h1><br>
+                <div class="BS_row">
+                    <div class="BS_column">
+                        <img src="/images/Royal-Canin-Logo.png" alt="Best Seller brand logo" class="BS-logo">
+                        <br><p>Founded in 1968, Royal Canin is a global leader in pet science, health and nutrition. 
+                            In an industry that adapts to popular trends, our mission is to deliver the most precise nutritional solution for cats and dogs, 
+                            tailored to each individual breed, lifestyle, life-stage or medical condition.</p><br>
+                        <a href="https://www.royalcanin.com/us">
+                        <button class="btn_more">LEARN MORE</button>
+                        </a>
+                    </div>
+                    <div class="BS_column">
+                        <iframe width="75%" height="100%" src="https://www.youtube.com/embed/5Y918G7gfLI?autoplay=1&controls=0"></iframe>
+                    </div>
+                </div>                
             </article>
+
             <article class="promo">
                 <article class="box1">
-                    <h3>NEW MEMBER</h3>
-                    <section class="new_mem">description</section>
+                    <h3>NEW MEMBER DISCOUNT</h3>
                 </article>
                 <article class="box2">
-                    <h3>5% DISCOUNT</h3>
-                    <section class="discount">description</section>
+                    <h3>5% OPENING SHOP DISCOUNT</h3>
                 </article>
                 <article class="box3">
-                    <h3>TOP 10 RECOMMEND</h3>
-                    <section class="recommend">description</section>
+                    <h3>TOP 10 RECOMMENDED</h3>
                 </article>
             </article>
-            <a href="#" name="shop_button"><h4>SHOP NOW</h4></a> 
+            <div class="btn-center">
+                <a href="product.html">
+                <button class="btn_shop">SHOP NOW</button>   
+                </a>
+            </div>
         </article>
 
         <footer>
-            <h6><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></h6>
-            <h6>THANK YOU FOR YOUR MONEY</h6>
+            <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
+            <br><h5>THANK YOU FOR YOUR MONEY</h5>
         </footer>
     </body>
 </html>

@@ -1,0 +1,131 @@
+* {
+    font-family: Poppins,Helvetica,sans-serif;
+    margin: 0px;
+    text-decoration: none;
+}
+
+nav {
+    background-color: #4A3131;
+    padding: 0px;
+    color: #FFFFFF;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+.nav_left {
+    float: left;
+}
+
+.nav_right {
+    float: right;
+    font-size: 22px;
+    padding: 7px 16px;
+}
+
+nav a {
+    padding: 12px 16px;
+    color: #FFFFFF;
+}
+
+nav a:hover {
+    background-color: #FFFFFF;
+    color: #4A3131;
+}
+
+nav img {
+    margin-left: 10px;
+    height: 48px;
+}
+
+.menu {
+    background-color: #FFD465;
+    padding: 1%;
+}
+
+.mn-admin {
+    color: #4A3131;
+    background-color: #FFFFFF;
+    padding: 1.2%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.mn-product {
+    color: #4A3131;
+    background-color: #FFAB51;
+    padding: 1.1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+h1 {
+    font-size: 3vw;
+    margin: 5%;
+    margin-bottom: 3%;
+    color: #4A3131;
+}
+
+.btn_add {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-right: 8.5%;
+}
+
+table {
+    margin: 5%;
+    margin-top: 3%;
+    text-align: center;
+    width: 90vw;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1%;
+}
+
+tbody > tr:nth-of-type(odd) {
+    background-color: #DDDDDD;
+}
+
+tbody > tr:nth-of-type(even) {
+    background-color: #F8F7FA;
+}
+
+button {
+    color: #FFFFFF;
+    border: none;
+    font-weight: bold;
+    border-radius: 2.5vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.btn_add button {
+    background-color: #FF8862;
+
+}
+
+.btn_edit button{
+    background-color: #59B100;
+}
+
+.btn_del button{
+    background-color: #E50529;
+
+}
+
+.container {
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #4A3131;
+    padding: 2vw;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: auto;
+}
