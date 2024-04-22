@@ -88,6 +88,6 @@ VALUES ('784534','Royal Canin Mini 2-10 months','Dog','Royal Canin','Chicken','D
 ('137354','Optimum Turtle food 40Kg','Other','Optimum','Other','Dry','350','17','https://github.com/Bew-P/PetSki/blob/main/Productimg/Optimum_Turtle_food_40Kg_1.jpeg?raw=true'),
 ('496954','Sakura Gold Fish 250g','Other','Sakura','Other','Dry','150','31','https://github.com/Bew-P/PetSki/blob/main/Productimg/Sakura_Gold_Fish_250g_1.jpeg?raw=true'),
 ('719047','Hills Science Diet Dry Adult Cat Food','Cat','Hills','Chicken','Dry','590','25','https://github.com/Bew-P/PetSki/blob/main/Productimg/Hills_Diet_Dry_Cat_Food2.jpeg?raw=true'),
-('290145','Optimum Hi Pro 1.5 kg','Other','Optimum','Other','Dry','239','19','https://raw.githubusercontent.com/Bew-P/PetSki/main/Productimg/Optimum_Hi_pro.webp?token=GHSAT0AAAAAACRJNRNKUTH4M4KVRU2OARV6ZRF7CHQ'),
+('290145','Optimum Hi Pro 1.5 kg','Other','Optimum','Other','Dry','239','19','https://github.com/Bew-P/PetSki/raw/main/Productimg/Optimum_Hi_pro.webp'),
 ('123484','Hills science diet wet cat food','Cat','Hills','Chicken','Wet','489','29','https://github.com/Bew-P/PetSki/blob/main/Productimg/Hills_diet_cat_food1.jpeg?raw=true');
 
