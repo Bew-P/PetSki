@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>Editing product</title>
-  <link rel="stylesheet" href="/css/editproduct.css">
+  <title>New product</title>
+  <link rel="stylesheet" href="/css/addproduct.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -23,23 +23,23 @@
   <main>
     
 
-    <div id="idform" action="/editform-submit" method="POST">
-      <h2 id="h2"><b>Editing product</b></h2>
+    <div id="idform" action="/editproduct-submit" method="PUT">
+      <h2 id="h2"><b>New Product</b></h2>
       <h5 id="h5">Only for admin and staff</h5>
       <form id="formC">
         <div class="rows">
           <div class="column">
             <label class="theLabals">ID: </label>
-            <input class="theInputs" type="text" name="id" size="20" required><br>
+            <input class="theInputs" type="text" name="Product_id" size="20" required><br>
 
           </div>
           <div class="column">
             <label class="theLabals">Name: </label>
-            <input class="theInputs" type="text" name="name" required><br>
+            <input class="theInputs" type="text" name="Pname" required><br>
           </div>
           <div class="column">
             <label class="theLabals">Category: </label>
-            <select class="theInputs" name="Pet_choice" required>
+            <select class="theInputs" name="Pet_Category" required>
               <option selected>Choose</option>
               <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
@@ -51,7 +51,7 @@
           </div>
           <div class="column">
             <label class="theLabals">Brand: </label>
-            <select class="theInputs" name="brand_choice" required>
+            <select class="theInputs" name="Brand" required>
               <option selected>Choose</option>
               <option value="Royal_canin">Royal Canin</option>
               <option value="Pedigree">Pedigree</option>
@@ -67,7 +67,7 @@
           </div>
           <div class="column">
             <label class="theLabals">Flavor: </label>
-            <select class="theInputs" name="flavor_choice" required>
+            <select class="theInputs" name="Flavor" required>
               <option selected>Choose</option>
               <option value="Beef">Beef</option>
               <option value="Chicken">Chicken</option>
@@ -78,7 +78,7 @@
           </div>
           <div class="column">
             <label class="theLabals">Type: </label>
-            <select class="theInputs" name="type_choice" required>
+            <select class="theInputs" name="FoodType" required>
               <option selected>Choose</option>
               <option value="Dry">Dry</option>
               <option value="Wet">Wet</option>
@@ -100,6 +100,7 @@
           </div>
         </div>
 
+        
       </form>
       <button class="button" type="add">EDIT</button>
     </div>

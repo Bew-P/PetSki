@@ -31,7 +31,7 @@ VALUES ('6588022','Sakhunich','Iamcharas','Nakhon Pathom,Thailand','20','Sakhuni
 CREATE TABLE Adminlogin (
 	Admin_email		VARCHAR(30) NOT NULL,
     Admin_pw		VARCHAR(12) NOT NULL,
-    
+
     CONSTRAINT FK_Admin_email FOREIGN KEY(Admin_email) REFERENCES Admininfo(Admin_email)
 );
 
@@ -48,17 +48,17 @@ VALUES ("Sakhunich.iam@gmail.com","bam0229457"),
 ('Lucy.fos@gmail.com','Lucy936293');
 
 CREATE TABLE Petdata (
-	Product_id		VARCHAR(6),
+	Product_id		VARCHAR(6) NOT NULL,
     Pname			VARCHAR(50)	NOT NULL,
     Pet_Category	VARCHAR(10)	NOT NULL,
     Brand			VARCHAR(20)	NOT NULL,
     Flavor			VARCHAR(10)	NOT NULL,
     FoodType		VARCHAR(20)	NOT NULL,
     price			INT,
-    quanlity		INT,
-    image			VARCHAR(100),
+    quantity		INT,
+    image			VARCHAR(255),
     CONSTRAINT PK_Product_id PRIMARY KEY(Product_id)
-    -- CONSTRAINT FK_PassportNo_PM FOREIGN KEY(PassportNo) REFERENCES Passenger(PassportNo)
+    
 );
 
 ALTER TABLE Petdata
