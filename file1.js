@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path')
-const port=3000
+const port = 3000
 const app = express();
 //Import and use Environmental varaiable
 const dotenv = require("dotenv");
@@ -33,7 +33,7 @@ connection.connect(function (err) {
 })
 
 /* Set the static file directory */
-app.use('/', express.static(path.join(__dirname,'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 
 /* Apply the created router to the route */
@@ -65,7 +65,7 @@ router.post('/product-submit', (req, res) => {
         sql += ` AND FoodType = '${search_type}'`;
     }
 
-    connection.query(sql, function(error, results) {
+    connection.query(sql, function (error, results) {
         if (error) {
             console.error("Error querying database: ", error);
             return res.status(500).json({ error: "Internal Server Error" });
@@ -120,6 +120,30 @@ router.get('/editadmin', (req, res) => {
 router.get('/editproduct', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/editproduct.html`))
 })
+
+router.post('/adminmanage', (req, res) => {
+    const { email, password } = req.body;
+
+    console.log("Received email:", email);
+    console.log("Received password:", password);
+
+    // Construct SQL query to check if email and password match in the database
+    const sql = 'SELECT * FROM Admininfo WHERE Admin_email = ? AND Admin_pw = ?';
+
+    connection.query(sql, [email, password], function(error, results) {
+        if (error) {
+            console.error("Error querying database: ", error);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+
+        if (results.length > 0) {
+            return res.redirect('/adminmanage');
+        } else {
+            return res.redirect('/login');
+        }
+    });
+});
+
 
 
 /* Handle other unspecified paths */
