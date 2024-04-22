@@ -18,22 +18,14 @@
         <a href="/products" name="product" class="nav_left">PRODUCT</a>
         <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
         <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
-        <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
-    </nav>
+        <!-- <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a> -->
+    </nav>    
 
     <div class="product-detail-container">
-        <img src="/images/Dog Food.jpeg" alt="product">
         <div class="product-detail">
-            <h3 class="product-name">Royal Canin Labrador Retriever Puppy Dry Dog Food</h3>
-            <h2 class="product-price">2,350 THB</h2>
-            <!-- Details -->
-            <p class="detail">• Puppy Granulated dog food for puppies Labrador retriever under 15 months of age <br>
-                • Support your puppy's growth with a balanced diet rich in protein, calcium, and phosphorus for strong
-                bones. <br>
-                • Maintain a healthy weight with L-carnitine to metabolize fats for energy. <br>
-                • Ensure digestive health with proteins and LIP FOS MOS. <br>
-                • Boost natural immunity with vitamins C, E, taurine, and lutein, ideal for Labrador Retriever puppies
-                up to 15 months old. <br></p>
+            <img src="" alt="" id="product-image"> <!-- Placeholder for product image -->
+            <h2 id="product-name"></h2> <!-- Placeholder for product name -->
+            <p id="product-price"></p> <!-- Placeholder for product price -->
             <!-- Quantity buttons -->
             <div class="qty-input">
                 <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
@@ -51,7 +43,26 @@
         <h5>THANK YOU FOR YOUR MONEY</h5>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('Product_id');
+            console.log('Product ID:', productId);
 
+            fetch(`/product-detail?id=${productId}`)
+                .then((res) => res.json())
+                .then((product) => {
+                    
+                    // Update product details on the page
+                    document.getElementById('product-image').src = product.image;
+                    document.getElementById('product-name').textContent = product.Pname;
+                    document.getElementById('product-price').textContent = product.price + ' THB';;
+                    console.log('THB');
+
+                })
+                .catch((err) => console.error(err));
+        });
+    </script>
 </body>
 
 </html>

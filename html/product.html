@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="/css/product.css">
     <title>Product list</title>
 </head>
-
 <body>
     <nav>
         <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
@@ -17,19 +15,15 @@
         <a href="/products" name="product" class="nav_left">PRODUCT</a>
         <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
         <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
-        <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
+        <!-- <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a> -->
     </nav>
-
     <header>
         <h1>PRODUCTS</h1>
     </header>
-
-
     <div class="search-container">
-        <h3>Find Product</h3>
+        <h3>SEARCH PRODUCT</h3>
         <div class="search-row">
-
-            <form class="input-group" action="/product-submit" method="POST">
+            <form class="input-group" id="searchForm">
                 <div class="input-row">
                     <input type="text" name='search_pet' placeholder="PET">
                     <input type="text" name='search_brand' placeholder="BRAND">
@@ -42,26 +36,43 @@
             </form>
         </div>
     </div>
-
-    <div class="product-container">
-        <div class="product-row">
-            <div class="product">
-                <a href="productdetail.html"><img src="/images/Dog Food.jpeg" alt="Product 1"></a>
-                <h2>Product 1</h2>
-                <p>2,350 THB</p>
-            </div>
-        </div>
-
-    </div>
-
+    <div class="product-container"></div>
     <footer>
         <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
         <br>
         <h5>THANK YOU FOR YOUR MONEY</h5>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchForm = document.getElementById('searchForm');
+            const productContainer = document.querySelector('.product-container');
 
+            searchForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                const formData = new FormData(searchForm);
+                const searchParams = new URLSearchParams(formData).toString();
+
+                fetch(`/product-submit?${searchParams}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        productContainer.innerHTML = ''; // Clear previous results
+                        data.forEach(product => {
+                            const productElement = document.createElement("div");
+                            productElement.className = "product";
+                            productElement.innerHTML = `
+                                <a href="/productdetail?Product_id=${product.Product_id}">
+                                    <img src="${product.image}" alt="${product.Pname}">
+                                </a>
+                                <h2>${product.Pname}</h2>
+                                <p>${product.price} THB</p>
+                            `;
+                            productContainer.appendChild(productElement);
+                        });
+                    })
+                    .catch((err) => console.log(err));
+            });
+        });
+    </script>
 </body>
-
-</html> 
-
-
+</html>

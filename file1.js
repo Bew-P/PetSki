@@ -45,8 +45,8 @@ router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
 
-router.post('/product-submit', (req, res) => {
-    let { search_pet, search_brand, search_flavor, search_type } = req.body;
+router.get('/product-submit', (req, res) => {
+    let { search_pet, search_brand, search_flavor, search_type } = req.query;
 
     // Constructing the SQL query with dynamic conditions
     let sql = `SELECT * FROM Petdata WHERE 1`;
@@ -68,17 +68,18 @@ router.post('/product-submit', (req, res) => {
     connection.query(sql, function (error, results) {
         if (error) {
             console.error("Error querying database: ", error);
-            return res.status(500).json({ error: "Internal Server Error" });
+            return res.status(500).send("Internal Server Error");
         }
         if (results.length === 0) {
             console.log(`Search not found`);
-            return res.status(404).json({ message: "Search not found" });
+            return res.status(404).send("Search not found");
         } else {
             console.log(`Search ${results.length} rows returned found`);
-            return res.status(200).json(results);
+            return res.json(results); // Return the search results as JSON
         }
     });
 });
+
 
 
 router.get('/productdetail', (req, res) => {
@@ -101,6 +102,13 @@ router.get('/adminmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/adminmanage.html`))
 })
 
+router.get('/api/admin', (req,res) => {
+    connection.query('SELECT * FROM Admininfo', function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+})
+
 router.get('/productmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/productmanage.html`))
 })
@@ -115,6 +123,26 @@ router.get('/addadmin', (req, res) => {
 
 router.get('/editadmin', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/editadmin.html`))
+})
+
+router.put('/editadmin', (req, res) => {
+    let id = req.body.Admininfo.id;
+    let admin = req.body.Admininfo;
+    const sql = 'UPDATE Admininfo SET ? WHERE id = ?';
+    if (!student_id || !student) {
+        return res.status(400).send({ error: student, message: 'Please provide student information' });
+    }
+    connection.query(sql, [admin, id], function (error, results) {
+        if (error) throw error;
+    });
+})
+
+router.delete('/adminmanage', (req, res) => {
+    /*let id = req.body.id;
+    connection.query('DELETE FROM Admininfo WHERE id = ?', [id], function (error, results)
+    {
+        if (error) throw error;
+    });*/
 })
 
 router.get('/editproduct', (req, res) => {
@@ -144,7 +172,26 @@ router.post('/adminmanage', (req, res) => {
     });
 });
 
+router.get('/product-detail', (req, res) => {
+    const productId = req.query.id; // Extract product ID from query parameters
 
+    // Construct SQL query to fetch product details from the database
+    const sql = 'SELECT * FROM Petdata WHERE Product_id = ?';
+
+    connection.query(sql, [productId], function (error, results) {
+        if (error) {
+            console.error("Error querying database: ", error);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+
+        if (results.length > 0) {
+            const product = results[0]; // Assuming only one product is returned
+            return res.json(product); // Return product details as JSON
+        } else {
+            return res.status(404).json({ error: "Product not found" }); // Return 404 error if product not found
+        }
+    });
+});
 
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {

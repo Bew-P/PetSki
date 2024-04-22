@@ -57,7 +57,25 @@
     </div>
     
   </main>
-
+  <script>
+    function EditUser(id) {
+      fetch('http://localhost:3000/api/admin')
+          .then(res => JSON(res.json()))
+          .then(data => {
+              var trHTML = '';
+              data.forEach(user => {
+                  trHTML += '<tr>';
+                  trHTML += `<td>${user.id}</td>`;
+                  trHTML += `<td>${user.fname} ${user.lname}</td>`;
+                  trHTML += `<td>${user.fname}</td>`;
+                  trHTML += `<td>${user.Admin_email}</td>`;
+                  trHTML += `<td><a href="/editadmin" class="btn_edit"><button>EDIT</button></a></td>`;
+                  trHTML += `<td><a href="/adminmanage" class="btn_del"><button>DELETE</button></a></td>`;
+              });
+              document.getElementById('admin').innerHTML = trHTML;
+          })
+      }
+  </script>
 </body>
 
 

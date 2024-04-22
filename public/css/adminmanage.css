@@ -86,12 +86,16 @@ th, td {
     padding: 1%;
 }
 
-tbody > tr:nth-of-type(odd) {
+thead {
     background-color: #DDDDDD;
 }
 
-tbody > tr:nth-of-type(even) {
+tbody > tr:nth-of-type(odd) {
     background-color: #F8F7FA;
+}
+
+tbody > tr:nth-of-type(even) {
+    background-color: #DDDDDD;
 }
 
 button {
