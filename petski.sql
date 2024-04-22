@@ -58,7 +58,7 @@ CREATE TABLE Petdata (
     quantity		INT,
     image			VARCHAR(255),
     CONSTRAINT PK_Product_id PRIMARY KEY(Product_id)
-    
+
 );
 
 ALTER TABLE Petdata
@@ -78,16 +78,16 @@ ADD CONSTRAINT Pet_Brand CHECK
 (Brand in ('Royal Canin','Pedigree','Whiskas','Smartheart','Sakura','Optimum','Hills'));
 
 INSERT INTO Petdata 
-VALUES ('784534','Royal Canin Mini 2-10 months','Dog','Royal Canin','Chicken','Dry','550','15','Productimg/Royal Canin Mini 2-10 months.jpeg'),
-('241535','Pedigree Adult','Dog','Pedigree','Chicken','Veterinarydiet','649','24','Productimg/Pedigree Adult.jpg'),
-('135569','Smartheart Adult Roast Beef flavor','Dog','Smartheart','Beef','Wet','1190','13','Productimg/Smartheart Adult Roast Beef flavor.jpeg'),
-('088567','Royal Canin Adult Mini Sterlised','Dog','Royal Canin','Pork','Veterinarydiet','1150','6','Productimg/Royal Canin Adult Mini Sterlised.jpeg'),
-('063745','Whiskas Dry Cat Food High Protein 1.2 g','Cat','Whiskas','Fish','Dry','759','12','Productimg/Whiskas Dry Cat Food High Protein 1.2 g.jpeg'),
-('763695','Royal Canin Regular Fit Adult Cat','Cat','Royal Canin','Chicken','Veterinarydiet','890','21','Productimg/Royal Canin Regular Fit Adult Cat.png'),
-('546734','Smartheart Gold Adult Dry Cat 1.1 Kg','Cat','Smartheart','Other','Dry','1220','4','Productimg/Smartheart Gold Adult Cat.png'),
-('137354','Optimum Turtle food 40Kg','Other','Optimum','Other','Dry','350','17','Productimg/Optimum Turtle food 40Kg.jpeg'),
-('496954','Sakura Gold Fish 250g','Other','Sakura','Other','Dry','150','31','Productimg/Sakura Gold Fish 250g 3.jpeg'),
-('719047','Hills Science Diet Dry Adult Cat Food','Cat','Hills','Chicken','Dry','590','25','Productimg/Hills Science Diet Dry Cat Food.jpeg'),
-('290145','Optimum Hi Pro 1.5 kg','Other','Optimum','Other','Dry','239','19','Productimg/Optimum Hi pro.webp'),
-('123484','Hills science diet wet cat food','Cat','Hills','Chicken','Wet','489','29','Productimg/Hills science diet wet cat food.jpeg');
+VALUES ('784534','Royal Canin Mini 2-10 months','Dog','Royal Canin','Chicken','Dry','550','15','https://github.com/Bew-P/PetSki/blob/main/Productimg/Royal_Canin_dog1.jpeg?raw=true'),
+('241535','Pedigree Adult','Dog','Pedigree','Chicken','Veterinarydiet','649','24','https://github.com/Bew-P/PetSki/blob/main/Productimg/Pedigree_Adult_1.jpg?raw=true'),
+('135569','Smartheart Adult Roast Beef flavor','Dog','Smartheart','Beef','Wet','1190','13','https://github.com/Bew-P/PetSki/blob/main/Productimg/Smartheart_Adult_Roast_Beef1.jpeg?raw=true'),
+('088567','Royal Canin Adult Mini Sterlised','Dog','Royal Canin','Pork','Veterinarydiet','1150','6','https://github.com/Bew-P/PetSki/blob/main/Productimg/Royal_Canin_Adult_Mini_Sterlised1.jpeg?raw=true'),
+('063745','Whiskas Dry Cat Food High Protein 1.2 g','Cat','Whiskas','Fish','Dry','759','12','https://github.com/Bew-P/PetSki/blob/main/Productimg/Whiskas_Dry_Cat_High_Protein%20_1.jpeg?raw=true'),
+('763695','Royal Canin Regular Fit Adult Cat','Cat','Royal Canin','Chicken','Veterinarydiet','890','21','https://github.com/Bew-P/PetSki/blob/main/Productimg/Royal_Canin_Regular_Fit_Adult_Cat1.png?raw=trueg'),
+('546734','Smartheart Gold Adult Dry Cat 1.1 Kg','Cat','Smartheart','Other','Dry','1220','4','https://github.com/Bew-P/PetSki/blob/main/Productimg/Smartheart_Gold_Adult_Cat1.png?raw=true'),
+('137354','Optimum Turtle food 40Kg','Other','Optimum','Other','Dry','350','17','https://github.com/Bew-P/PetSki/blob/main/Productimg/Optimum_Turtle_food_40Kg_1.jpeg?raw=true'),
+('496954','Sakura Gold Fish 250g','Other','Sakura','Other','Dry','150','31','https://github.com/Bew-P/PetSki/blob/main/Productimg/Sakura_Gold_Fish_250g_1.jpeg?raw=true'),
+('719047','Hills Science Diet Dry Adult Cat Food','Cat','Hills','Chicken','Dry','590','25','https://github.com/Bew-P/PetSki/blob/main/Productimg/Hills_Diet_Dry_Cat_Food2.jpeg?raw=true'),
+('290145','Optimum Hi Pro 1.5 kg','Other','Optimum','Other','Dry','239','19','https://raw.githubusercontent.com/Bew-P/PetSki/main/Productimg/Optimum_Hi_pro.webp?token=GHSAT0AAAAAACRJNRNKUTH4M4KVRU2OARV6ZRF7CHQ'),
+('123484','Hills science diet wet cat food','Cat','Hills','Chicken','Wet','489','29','https://github.com/Bew-P/PetSki/blob/main/Productimg/Hills_diet_cat_food1.jpeg?raw=true');
 
