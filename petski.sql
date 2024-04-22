@@ -18,7 +18,7 @@ CREATE TABLE Admininfo (
 INSERT INTO Admininfo
 VALUES ('6588022','Sakhunich','Iamcharas','Nakhon Pathom,Thailand','20','Sakhunich.iam@gmail.com','bam0229457'),
 ('6588168','Vichaya','Chongthanapipat','Bangkok,Thailand','19','Vichaya.cho@gmail.com','ungink1687'),
-('6588169','Chananphimon','Chunchaowarit','Nakhon Pathom,Thailand','20','Chanaphimon.chu@gmail.com','pin1698430'),
+('6588169','Chananphimon','Chunchaowarit','Nakhon Pathom,Thailand','20','Chananphimon.chu@gmail.com','pin1698430'),
 ('6588175','Pakjira','Kharphodee','Nonthaburi,Thailand','20','Pakjira.Kha@gmail.com','bew1756217'),
 ('6313576','Taylor','Swift','Bangkok,Thailand','34','Taylor.swi@gmail.com','taylor1369'),
 ('4957534','Christian','Harper','Manhattan, New York, United States','32','Christian.har@gmail.com','Chris90572'),
@@ -38,7 +38,7 @@ CREATE TABLE Adminlogin (
 INSERT INTO Adminlogin
 VALUES ("Sakhunich.iam@gmail.com","bam0229457"),
 ('Vichaya.cho@gmail.com','ungink1687'),
-('Chanaphimon.chu@gmail.com','pin1698430'),
+('Chananphimon.chu@gmail.com','pin1698430'),
 ('Pakjira.Kha@gmail.com','bew1756217'),
 ('Taylor.swi@gmail.com','taylor1369'),
 ('Christian.har@gmail.com','Chris90572'),
