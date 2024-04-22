@@ -102,6 +102,13 @@ router.get('/adminmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/adminmanage.html`))
 })
 
+router.get('/api/admin', (req,res) => {
+    connection.query('SELECT * FROM Admininfo', function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+})
+
 router.get('/productmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/productmanage.html`))
 })
@@ -116,6 +123,26 @@ router.get('/addadmin', (req, res) => {
 
 router.get('/editadmin', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/editadmin.html`))
+})
+
+router.put('/editadmin', (req, res) => {
+    let id = req.body.Admininfo.id;
+    let admin = req.body.Admininfo;
+    const sql = 'UPDATE Admininfo SET ? WHERE id = ?';
+    if (!student_id || !student) {
+        return res.status(400).send({ error: student, message: 'Please provide student information' });
+    }
+    connection.query(sql, [admin, id], function (error, results) {
+        if (error) throw error;
+    });
+})
+
+router.delete('/adminmanage', (req, res) => {
+    /*let id = req.body.id;
+    connection.query('DELETE FROM Admininfo WHERE id = ?', [id], function (error, results)
+    {
+        if (error) throw error;
+    });*/
 })
 
 router.get('/editproduct', (req, res) => {
