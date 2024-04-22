@@ -6,7 +6,7 @@ USE petski;
 
 CREATE TABLE Admininfo (
 	id				CHAR(7) NOT NULL,
-    user            VARCHAR(10) NOT NULL,
+    username        VARCHAR(10) NOT NULL,
 	fname 			VARCHAR(50)	NOT NULL,
     lname			VARCHAR(50)	NOT NULL,
     address 		VARCHAR(100)	NOT NULL,
