@@ -9,24 +9,22 @@ CREATE TABLE Admininfo (
     username        VARCHAR(10) NOT NULL,
 	fname 			VARCHAR(50)	NOT NULL,
     lname			VARCHAR(50)	NOT NULL,
-    address 		VARCHAR(100)	NOT NULL,
-    age 			INT,
     Admin_email 	VARCHAR(30)	NOT NULL,
     Admin_pw		VARCHAR(12) NOT NULL,
 	CONSTRAINT PK_Admin_email PRIMARY KEY (Admin_email)
 );
 
 INSERT INTO Admininfo
-VALUES ('6588022','Bam022','Sakhunich','Iamcharas','Nakhon Pathom,Thailand','20','Sakhunich.iam@gmail.com','bam0229457'),
-('6588168','UNgink168','Vichaya','Chongthanapipat','Bangkok,Thailand','19','Vichaya.cho@gmail.com','ungink1687'),
-('6588169','P1N169','Chananphimon','Chunchaowarit','Nakhon Pathom,Thailand','20','Chananphimon.chu@gmail.com','pin1698430'),
-('6588175','BeW1753','Pakjira','Kharphodee','Nonthaburi,Thailand','20','Pakjira.Kha@gmail.com','bew1756217'),
-('6313576','Tay57613','Taylor','Swift','Bangkok,Thailand','34','Taylor.swi@gmail.com','taylor1369'),
-('4957534','Chri534','Christian','Harper','Manhattan, New York, United States','32','Christian.har@gmail.com','Chris90572'),
-('0135734','A1ex734','Alex','Volkov','Washington, D.C., United States','34','Alex.vol@gmail.com','Alex894618'),
-('7323515','Isab515','Isabella','Young','New York City, New York, United States','27','Isabella@gmail.com','Isabe926310'),
-('0552413','Ava2413','Ava','Chen','Bangkok,Thailand','26','Ava.chen@gmail.com','Ava8961525'),
-('7452373','Lu2373','Lucy','Foster','Bangkok,Thailand','30','Lucy.fos@gmail.com','Lucy936293');
+VALUES ('6588022','Bam022','Sakhunich','Iamcharas','Sakhunich.iam@gmail.com','bam0229457'),
+('6588168','UNgink168','Vichaya','Chongthanapipat','Vichaya.cho@gmail.com','ungink1687'),
+('6588169','P1N169','Chananphimon','Chunchaowarit','Chananphimon.chu@gmail.com','pin1698430'),
+('6588175','BeW1753','Pakjira','Kharphodee','Pakjira.Kha@gmail.com','bew1756217'),
+('6313576','Tay57613','Taylor','Swift','Taylor.swi@gmail.com','taylor1369'),
+('4957534','Chri534','Christian','Harper','Christian.har@gmail.com','Chris90572'),
+('0135734','A1ex734','Alex','Volkov','Alex.vol@gmail.com','Alex894618'),
+('7323515','Isab515','Isabella','Young','Isabella@gmail.com','Isabe926310'),
+('0552413','Ava2413','Ava','Chen','Ava.chen@gmail.com','Ava8961525'),
+('7452373','Lu2373','Lucy','Foster','Lucy.fos@gmail.com','Lucy936293');
 
 
 CREATE TABLE Adminlogin (

@@ -45,6 +45,13 @@ router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
 
+router.get('/api/product', (req,res) => {
+    connection.query('SELECT * FROM Petdata', function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+})
+
 router.get('/product-submit', (req, res) => {
     let { search_pet, search_brand, search_flavor, search_type } = req.query;
 
@@ -102,7 +109,7 @@ router.get('/adminmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/adminmanage.html`))
 })
 
-router.get('/api/admin', (req,res) => {
+router.get('/api/admin', (req, res) => {
     connection.query('SELECT * FROM Admininfo', function (error, results) {
         if (error) throw error;
         res.json(results);
@@ -181,7 +188,7 @@ router.post('/adminmanage', (req, res) => {
     // Construct SQL query to check if email and password match in the database
     const sql = 'SELECT * FROM Admininfo WHERE Admin_email = ? AND Admin_pw = ?';
 
-    connection.query(sql, [email, password], function(error, results) {
+    connection.query(sql, [email, password], function (error, results) {
         if (error) {
             console.error("Error querying database: ", error);
             return res.status(500).json({ error: "Internal Server Error" });
@@ -195,27 +202,64 @@ router.post('/adminmanage', (req, res) => {
     });
 });
 
-router.get('/product-detail', (req, res) => {
-    const productId = req.query.id; // Extract product ID from query parameters
+// document.addEventListener('DOMContentLoaded', function() {
+//     const submitButton = document.getElementById('submit');
+//     submitButton.addEventListener('click', function(event) {
+//         alert("test");
+//     });
+// });
 
     // Construct SQL query to fetch product details from the database
     const sql = 'SELECT * FROM Petdata WHERE Product_id = ?';
 
-    connection.query(sql, [productId], function (error, results) {
-        if (error) {
-            console.error("Error querying database: ", error);
-            return res.status(500).json({ error: "Internal Server Error" });
-        }
+//edited-producted
+router.put('/editproduct-submit', (req, res) => {
+    console.log(req.url);
+    console.log(req.body);
+    const { Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image } = req.body;
 
-        if (results.length > 0) {
-            const product = results[0]; // Assuming only one product is returned
-            return res.json(product); // Return product details as JSON
-        } else {
-            return res.status(404).json({ error: "Product not found" }); // Return 404 error if product not found
-        }
+    const sql = `UPDATE Petdata 
+                 SET Pname = ?, Pet_Category = ?, Brand = ?, Flavor = ?, FoodType = ?, price = ?, quantity = ?, image = ?
+                 WHERE Product_id = ?`;
+    const values = [Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image, Product_id];
+    console.log('SQL:', sql);
+    console.log('Values:', values);
+
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        console.error('Error updating product:', err);
+        return res.status(500).send('Error updating product');
+      }
+  
+      console.log('Product updated successfully');
+      return res.status(200).send('Product has been edited successfully');
+    });
+  });
+
+  
+
+
+router.post('/addproduct-submit', function (req, res) { 
+    console.log(req.url);
+    console.log(req.body);
+    const { Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image } = req.body;
+
+    const sql = `INSERT INTO Petdata (Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values = [Product_id,Pname,Pet_Category,Brand,Flavor,FoodType,price,quantity,image];
+    console.log('SQL:', sql);
+    console.log('Values:', values);
+
+    connection.query(sql, values,function (error, results) {
+        if (error){
+            console.error('Error add product:', err);
+            return res.status(500).send('Error add product');
+        };
+
+        console.log('Product added successfully');
+        return res.status(200).send('New product has been created successfully.');
+        
     });
 });
-
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {
     console.log("404: Invalid accessed");

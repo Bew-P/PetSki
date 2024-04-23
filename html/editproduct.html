@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  
 </head>
 
 <body>
@@ -21,25 +21,23 @@
     <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
   </nav>
   <main>
-    
-
-    <div id="idform" action="/editproduct-submit" method="PUT">
+    <div id="idform">
       <h2 id="h2"><b>New Product</b></h2>
       <h5 id="h5">Only for admin and staff</h5>
       <form id="formC">
         <div class="rows">
           <div class="column">
             <label class="theLabals">ID: </label>
-            <input class="theInputs" type="text" name="Product_id" size="20" required><br>
+            <input class="theInputs" type="text" name="Product_id" id="Product_id" size="20" required><br>
 
           </div>
           <div class="column">
             <label class="theLabals">Name: </label>
-            <input class="theInputs" type="text" name="Pname" required><br>
+            <input class="theInputs" type="text" name="Pname" id="Pname"  required><br>
           </div>
           <div class="column">
             <label class="theLabals">Category: </label>
-            <select class="theInputs" name="Pet_Category" required>
+            <select class="theInputs" name="Pet_Category" id="Pet_Category" required>
               <option selected>Choose</option>
               <option value="Dog">Dog</option>
               <option value="Cat">Cat</option>
@@ -51,7 +49,7 @@
           </div>
           <div class="column">
             <label class="theLabals">Brand: </label>
-            <select class="theInputs" name="Brand" required>
+            <select class="theInputs" name="Brand" id ="Brand" required>
               <option selected>Choose</option>
               <option value="Royal_canin">Royal Canin</option>
               <option value="Pedigree">Pedigree</option>
@@ -67,7 +65,7 @@
           </div>
           <div class="column">
             <label class="theLabals">Flavor: </label>
-            <select class="theInputs" name="Flavor" required>
+            <select class="theInputs" name="Flavor" id="Flavor" required>
               <option selected>Choose</option>
               <option value="Beef">Beef</option>
               <option value="Chicken">Chicken</option>
@@ -78,7 +76,7 @@
           </div>
           <div class="column">
             <label class="theLabals">Type: </label>
-            <select class="theInputs" name="FoodType" required>
+            <select class="theInputs" name="FoodType" id="FoodType"  required>
               <option selected>Choose</option>
               <option value="Dry">Dry</option>
               <option value="Wet">Wet</option>
@@ -87,24 +85,73 @@
           </div>
           <div class="column">
             <label class="theLabals" name="price">Price: </label>
-            <input class="theInputs" type="text" name="price" required><br>
+            <input class="theInputs" type="text" name="price" id="price"  required><br>
           </div>
           <div class="column">
             <label class="theLabals" name="quantity">Quantity: </label>
-            <input class="theInputs" type="text" name="quantity" required><br>
+            <input class="theInputs" type="text" name="quantity" id="quantity" required><br>
           </div>
           <div class="column">
             <label class="theLabals" for="image" name="pic">Image: </label>
-            <input class="theInputs" type="text" id="img" name="image" accept="image/*"><br>
+            <input class="theInputs" type="text"  name="image" id="img" accept="image/*"><br>
 
           </div>
         </div>
 
         
       </form>
-      <button class="button" type="add">EDIT</button>
+      <button class="button" type="button" id="submit">EDIT</button>
     </div>
     
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const submitButton = document.getElementById('submit');
+        submitButton.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent the default form submission
+          
+          // Get form data
+          const Product_id = document.getElementById('Product_id').value;
+          const Pname = document.getElementById('Pname').value;
+          const Pet_Category = document.getElementById('Pet_Category').value;
+          const Brand = document.getElementById('Brand').value;
+          const Flavor = document.getElementById('Flavor').value;
+          const FoodType = document.getElementById('FoodType').value;
+          const price = document.getElementById('price').value;
+          const quantity = document.getElementById('quantity').value;
+          const img = document.getElementById('img').value;
+    
+          // Construct the request body
+          const data = {
+            Product_id: Product_id,
+            Pname: Pname,
+            Pet_Category: Pet_Category,
+            Brand: Brand,
+            Flavor: Flavor,
+            FoodType: FoodType,
+            price: price,
+            quantity: quantity,
+            image: img
+          };
+    
+
+          fetch('http://localhost:3000/editproduct-submit', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+          .then(response => response.text())
+          .then(message => {
+            alert(message); // Show response message
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Error updating product');
+          });
+        });
+      });
+    </script>
   </main>
 
 </body>
@@ -115,7 +162,5 @@
   <br>
   <h5>THANK YOU FOR YOUR MONEY</h5>
 </footer>
-
-
 
 </html>
