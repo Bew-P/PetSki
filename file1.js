@@ -180,6 +180,35 @@ router.get('/editadmin', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/editadmin.html`))
 })
 
+
+
+//Testing 1: : Edit Admin 
+//URL: http://localhost:3000//editadmin-submit
+//body:raw JSON
+//method :put
+//{
+//    "id": "1234589",
+//    "username": "giko",
+//    "fname": "gigi",
+//   "lname": "ko",
+//    "Admin_email": "Taylor.swi@gmail.com",
+//    "Admin_pw": "kgo4564555"	
+//}
+
+
+//Testing 2: : Edit Admin 
+//URL: http://localhost:3000//editadmin-submit
+//body:raw JSON
+//method :put
+//{
+//    "id": "9837547",
+//    "username": "mimi",
+//    "fname": "joo",
+//   "lname": "mimi",
+//    "Admin_email": "Christian.har@gmail.com",
+//    "Admin_pw": "jmimi5759"	
+//}
+
 router.put('/editadmin-submit', (req, res) => {
     const { id, username,fname, lname, Admin_email, Admin_pw} = req.body;
     const sql = `UPDATE Admininfo SET id = ?, username = ? , fname = ?, lname = ?, Admin_pw = ? WHERE Admin_email = ?`;
