@@ -144,7 +144,39 @@ router.post('/adminmanage', (req, res) => {
     });
 });
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     const submitButton = document.getElementById('submit');
+//     submitButton.addEventListener('click', function(event) {
+//         alert("test");
+//     });
+// });
 
+
+//edited-producted
+router.put('/editproduct-submit', (req, res) => {
+    console.log(req.url);
+    console.log(req.body);
+    const { Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image } = req.body;
+
+    const sql = `UPDATE Petdata 
+                 SET Pname = ?, Pet_Category = ?, Brand = ?, Flavor = ?, FoodType = ?, price = ?, quantity = ?, image = ?
+                 WHERE Product_id = ?`;
+    const values = [Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image, Product_id];
+    console.log('SQL:', sql);
+    console.log('Values:', values);
+
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        console.error('Error updating product:', err);
+        return res.status(500).send('Error updating product');
+      }
+  
+      console.log('Product updated successfully');
+      return res.status(200).send('Product has been edited successfully');
+    });
+  });
+
+  
 
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {
