@@ -58,24 +58,49 @@
     
   </main>
   <script>
-    function EditUser(id) {
-      fetch('http://localhost:3000/api/admin')
-          .then(res => JSON(res.json()))
-          .then(data => {
-              var trHTML = '';
-              data.forEach(user => {
-                  trHTML += '<tr>';
-                  trHTML += `<td>${user.id}</td>`;
-                  trHTML += `<td>${user.fname} ${user.lname}</td>`;
-                  trHTML += `<td>${user.fname}</td>`;
-                  trHTML += `<td>${user.Admin_email}</td>`;
-                  trHTML += `<td><a href="/editadmin" class="btn_edit"><button>EDIT</button></a></td>`;
-                  trHTML += `<td><a href="/adminmanage" class="btn_del"><button>DELETE</button></a></td>`;
-              });
-              document.getElementById('admin').innerHTML = trHTML;
-          })
-      }
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('submit').addEventListener("click", function() {
+        event.preventDefault();
+        const fname = document.getElementById('fname').value;
+        const lname = document.getElementById('lname').value;
+        const email = document.getElementById('Admin_email').value;
+        const username = document.getElementById('username').value;
+        const id = document.getElementById('id').value;
+        const password = document.getElementById('Admin_pw').value;
+
+        const adminData = {
+          'id': id,
+          'username': username,
+          'fname': fname,
+          'lname': lname,
+          'Admin_email': email,
+          'Admin_pw': password	
+        };
+
+        fetch('/editadmin-submit', {
+          method: 'PUT',
+          headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify(adminData)
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error')
+          }
+          return response.json();
+        })
+        .then(data => alert(data.message))
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error updating admin');
+        });
+      });
+    });
+
+    
   </script>
+
 </body>
 
 

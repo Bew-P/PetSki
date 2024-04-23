@@ -174,15 +174,18 @@ router.get('/editadmin', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/editadmin.html`))
 })
 
-router.put('/editadmin', (req, res) => {
-    let id = req.body.Admininfo.id;
-    let admin = req.body.Admininfo;
-    const sql = 'UPDATE Admininfo SET ? WHERE id = ?';
-    if (!student_id || !student) {
-        return res.status(400).send({ error: student, message: 'Please provide student information' });
-    }
-    connection.query(sql, [admin, id], function (error, results) {
-        if (error) throw error;
+router.put('/editadmin-submit', (req, res) => {
+    const { id, username,fname, lname, Admin_email, Admin_pw} = req.body;
+    const sql = `UPDATE Admininfo SET id = ?, username = ? , fname = ?, lname = ?, Admin_pw = ? WHERE Admin_email = ?`;
+    const values = [id, username,fname, lname, Admin_pw, Admin_email];
+
+    connection.query(sql, values, (err, result) => {
+        if (err) {
+        console.error('Error updating Admin:', err);
+        return res.status(500).send('Error updating admin');
+        }
+        console.log('Product updated successfully');
+        return res.status(200).send('Admin has been edited successfully');
     });
 })
 
@@ -286,7 +289,40 @@ router.put('/editproduct-submit', (req, res) => {
     });
 });
 
+//Add-producted
 
+//Testing 1 : Add product 
+//URL: http://localhost:3000/addproduct-submit
+//body:raw JSON
+//method :post
+//{
+//   "Product_id": "60000",
+//    "Pname": "test-case Royal Canin Adult Mini Sterlised",
+//    "Pet_Category": "Cat",
+//    "Brand": "Royal Canin",
+//    "Flavor": "Chicken",
+//    "FoodType": "Dry",
+//    "price": "550",
+//    "quantity": "85",
+//    "image": "https://www.simply-select.com/static/img/8a57d829d7049cc402f24c979d378ece.jpeg"
+//}
+
+
+//Testing 2: Add product 
+//URL: http://localhost:3000/addproduct-submit
+//body:raw JSON
+//method :post
+//{
+//    "Product_id": "92000",
+//    "Pname": "test-Royal Canin Adult Mini Sterlised",
+//    "Pet_Category": "Dog",
+//    "Brand": "Royal Canin",
+//    "Flavor": "Beef",
+//    "FoodType": "Dry",
+//    "price": "256",
+//    "quantity": "40",
+//   "image": "https://42petsthai.com/wp-content/uploads/2022/05/ad-golden-packshot-bhn18.png"
+//}
 
 
 router.post('/addproduct-submit', function (req, res) {
