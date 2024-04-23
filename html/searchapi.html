@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Search API</title>
+    <link rel="stylesheet" href="/css/searchapi.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <nav>
+        <img src="/public/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
+        <a href="/home" name="home" class="nav_left">HOME</a>
+        <a href="/products" name="product" class="nav_left">PRODUCT</a>
+        <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
+        <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
+        <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a>
+    </nav>
+
+    <div id="api">
+        <div class="app">
+            <div class="header">
+                <h1>Dog Breed API</h1>
+                <div id="breed"></div>
+            </div>
+            <div class="imgshow" id="imgshow">
+            </div>
+        </div>
+        <button onclick="start()"> Search </button>
+        <div id="output"> </div>
+    </div>
+
+</body>
+
+
+<script>
+
+    async function start() {
+        try {
+            const response = await fetch("https://dog.ceo/api/breeds/list/all")
+            const data = await response.json()
+            // console.log(data)
+            createBreedList(data.message)
+        } catch (e) {
+            console.log("There was a problem fetching the breed list.")
+        }
+    }
+
+    start()
+
+    async function createBreedList(breedList) {
+        document.getElementById("breed").innerHTML = `
+        <select onchange="loadByBreed(this.value)">
+                <option>Choose a dog breed</option>
+                ${Object.keys(breedList).map(function (breed) {
+            return `<option>${breed}</option>`
+        }).join('')}
+                </select>
+            `
+    }
+
+
+    async function loadByBreed(breed) {
+        if (breed != "Choose a dog breed") {
+            const response = await fetch(`https://dog.ceo/api/breed/${breed}/images/random/1`)
+            const data = await response.json()
+            // createSlideshow(data.message)
+            // showPicture(data.message)
+            let output = document.getElementById("output");
+            let outputHTML = "<ul>";
+            console.log(data)
+            // Assuming data is the response object
+            const imageLinks = data.message;
+
+            // imageLinks now contains an array of image URLs
+            console.log(imageLinks);
+            // let outputHTML = "<ul>";
+            imageLinks.forEach(link => {
+                outputHTML += "<li><img src='" + link + "'></li>";
+            });
+            outputHTML += "</ul>";
+            
+            output.innerHTML = outputHTML;
+        }
+    }
+
+</script>
+
+</html>

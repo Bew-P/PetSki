@@ -437,7 +437,9 @@ router.delete('/adminmanage/:adminEmail', (req, res) => {
     });
 });
 
-
+router.get('/searchapi', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/html/searchapi.html`))
+})
 
 
 /* Handle other unspecified paths */
