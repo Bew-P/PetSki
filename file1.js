@@ -226,6 +226,38 @@ router.put('/editproduct-submit', (req, res) => {
 
 
 
+router.post('/addproduct-submit', function (req, res) { 
+    //console.log("Request Body:", req.body);
+    let product = req.body.Product_id;
+    console.log(product)
+    if (!product) {
+        console.log("Error!");
+        return res.status(400).send({ error: true, message: 'Please provide product information' });
+    }
+
+    const sql = "INSERT INTO Petdata ('Product_id', 'Pname', 'Pet_Category', 'Brand', 'Flavor', 'FoodType', 'price', 'quantity', 'image') VALUES " +
+    [ 
+        product.Product_id,
+        product.Pname,
+        product.Pet_Category,
+        product.Brand,
+        product.Flavor,
+        product.FoodType,
+        product.price,
+        product.quantity,
+        product.image
+    ]
+    console.log(sql)
+    
+    connection.query(sql, function (error, results) {
+    // connection.query(sql, values, function (error, results) {
+        if (error) throw error;
+        return res.send({error: false, data: results.affectedRows, message: 'New product has been created successfully.'});
+        
+    });
+    return res.redirect("/productmanage");
+
+});
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {
     console.log("404: Invalid accessed");
