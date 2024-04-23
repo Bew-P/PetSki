@@ -89,4 +89,3 @@ VALUES ('784534','Royal Canin Mini 2-10 months','Dog','Royal Canin','Chicken','D
 ('719047','Hills Science Diet Dry Adult Cat Food','Cat','Hills','Chicken','Dry','590','25','https://github.com/Bew-P/PetSki/blob/main/Productimg/Hills_Diet_Dry_Cat_Food2.jpeg?raw=true'),
 ('290145','Optimum Hi Pro 1.5 kg','Other','Optimum','Other','Dry','239','19','https://github.com/Bew-P/PetSki/raw/main/Productimg/Optimum_Hi_pro.webp'),
 ('123484','Hills science diet wet cat food','Cat','Hills','Chicken','Wet','489','29','https://github.com/Bew-P/PetSki/blob/main/Productimg/Hills_diet_cat_food1.jpeg?raw=true');
-

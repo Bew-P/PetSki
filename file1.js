@@ -6,7 +6,6 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
-
 /* Create a router object and register the router */
 const router = express.Router();
 app.use(router)
@@ -222,15 +221,10 @@ router.post('/adminmanage', (req, res) => {
     });
 });
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const submitButton = document.getElementById('submit');
-//     submitButton.addEventListener('click', function(event) {
-//         alert("test");
-//     });
-// });
 
-    // Construct SQL query to fetch product details from the database
-    const sql = 'SELECT * FROM Petdata WHERE Product_id = ?';
+
+// Construct SQL query to fetch product details from the database
+const sql = 'SELECT * FROM Petdata WHERE Product_id = ?';
 
 //edited-producted
 router.put('/editproduct-submit', (req, res) => {
@@ -246,20 +240,20 @@ router.put('/editproduct-submit', (req, res) => {
     console.log('Values:', values);
 
     connection.query(sql, values, (err, result) => {
-      if (err) {
-        console.error('Error updating product:', err);
-        return res.status(500).send('Error updating product');
-      }
-  
-      console.log('Product updated successfully');
-      return res.status(200).send('Product has been edited successfully');
+        if (err) {
+            console.error('Error updating product:', err);
+            return res.status(500).send('Error updating product');
+        }
+
+        console.log('Product updated successfully');
+        return res.status(200).send('Product has been edited successfully');
     });
-  });
-
-  
+});
 
 
-router.post('/addproduct-submit', function (req, res) { 
+
+
+router.post('/addproduct-submit', function (req, res) {
     console.log(req.url);
     console.log(req.body);
     const { Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image } = req.body;
@@ -277,7 +271,7 @@ router.post('/addproduct-submit', function (req, res) {
 
         console.log('Product added successfully');
         return res.status(200).send('New product has been created successfully.');
-        
+
     });
 });
 
@@ -307,6 +301,29 @@ router.delete('/deleteproduct/:productId', (req, res) => {
         return res.status(200).send('Product has been deleted successfully');
     });
 });
+
+router.delete('/adminmanage/:adminEmail', (req, res) => {
+    const adminEmail = req.params.adminEmail;
+
+    connection.query('DELETE FROM Adminlogin WHERE Admin_email = ?', adminEmail, (err, loginResult) => {
+        if (err) {
+            console.error('Error deleting admin login:', err);
+            return res.status(500).send('Error deleting admin login');
+        }
+
+            if (err) {
+                console.error('Error deleting admin info:', err);
+                return res.status(500).send('Error deleting admin info');
+            }
+
+            console.log('Admin account deleted successfully');
+            return res.status(200).send('Admin account has been deleted successfully');
+        });
+    });
+});
+
+
+
 
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {
