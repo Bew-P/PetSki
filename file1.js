@@ -121,6 +121,29 @@ router.get('/addadmin', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/addadmin.html`))
 })
 
+router.post('/addadmin-submit', (req, res) => {
+    let admin = req.body;
+    let id = req.body.id;
+    let username = req.body.username;
+    let fname = req.body.fname;
+    let lname = req.body.lname;
+    let email = req.body.email;
+    let password = req.body.password;
+    console.log(admin);
+    if (!admin) {
+        return res.status(400).send({ error: true, message: 'Please provide admin information' });
+    }
+    connection.query(`INSERT INTO Admininfo SET VALUES '${id}', '${username}', '${fname}', '${lname}', '${email}', '${password}' `, function (error, results) {
+        if (error) {
+            console.error(error);
+            return res.status(500).send({ error: true, message: 'Error adding new admin' });
+        }
+        console.log('New admin has been created successfully with id:', results.insertId);
+        res.status(201).send({ success: true, message: 'New admin created', id: results.insertId });
+    });
+});
+
+
 router.get('/editadmin', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/editadmin.html`))
 })
