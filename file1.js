@@ -157,13 +157,6 @@ router.get('/addadmin', (req, res) => {
 //}
 
 
-
-
-
-
-
-
-
 router.post('/addadmin-submit', (req, res) => {
     let admin = req.body;
     console.log(admin);
