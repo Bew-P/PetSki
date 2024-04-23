@@ -33,7 +33,7 @@
 
             <table>
                 
-                <tbody>
+                <thead>
                     <tr>
                     <th>ID</th>
                     <th>Image</th>
@@ -44,52 +44,32 @@
                     <th>EDIT</th>
                     <th>DELETE</th>
                     </tr>
-                    <tr>
-                        <td>001</td>
-                        <td><img src="" alt="Product image"></td>
-                        <td>Royal Canin Labrador Retriever Puppy Dry Dog Food</td>
-                        <td>Dog</td>
-                        <td>2350.00</td>
-                        <td>20</td>
-                        <td><a href="/editproduct" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td><img src="" alt="Product image"></td>
-                        <td>Royal Canin Labrador Retriever Puppy Dry Dog Food</td>
-                        <td>Dog</td>
-                        <td>2350.00</td>
-                        <td>20</td>
-                        <td><a href="/editproduct" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td><img src="" alt="Product image"></td>
-                        <td>Royal Canin Labrador Retriever Puppy Dry Dog Food</td>
-                        <td>Dog</td>
-                        <td>2350.00</td>
-                        <td>20</td>
-                        <td><a href="/editproduct" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
+                </thead>
+                <tbody id="product">
                 </tbody>
             </table>
         </article>
 
+        <script>
+            fetch('http://localhost:3000/api/product')
+                .then(res => res.json())
+                .then(data => {
+                    var trHTML = '';
+                    data.forEach(product => {
+                        trHTML += '<tr>';
+                        trHTML += `<td>${product.Product_id}</td>`;
+                        trHTML += `<td><img src="${product.image}"></td>`;
+                        trHTML += `<td>${product.Pname}</td>`;
+                        trHTML += `<td>${product.Pet_Category}</td>`;
+                        trHTML += `<td>${product.price}</td>`;
+                        trHTML += `<td>${product.quantity}</td>`;
+                        trHTML += `<td><a href="/editadmin" class="btn_edit"><button>EDIT</button></a></td>`;
+                        trHTML += `<td><a href="/adminmanage" class="btn_del"><button>DELETE</button></a></td>`;
+                    });
+                    document.getElementById('product').innerHTML = trHTML;
+                })
+        </script>
+    </body>
         <footer>
             <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
             <br><h5>THANK YOU FOR YOUR MONEY</h5>

@@ -130,17 +130,32 @@ router.get('/addadmin', (req, res) => {
 
 router.post('/addadmin-submit', (req, res) => {
     let admin = req.body;
-    let id = req.body.id;
-    let username = req.body.username;
-    let fname = req.body.fname;
-    let lname = req.body.lname;
-    let email = req.body.email;
-    let password = req.body.password;
     console.log(admin);
     if (!admin) {
         return res.status(400).send({ error: true, message: 'Please provide admin information' });
     }
-    connection.query(`INSERT INTO Admininfo SET VALUES '${id}', '${username}', '${fname}', '${lname}', '${email}', '${password}' `, function (error, results) {
+    connection.query("INSERT INTO Admininfo SET ? ", admin, function (error, results) {
+        if (error) {
+            console.error(error);
+            return res.status(500).send({ error: true, message: 'Error adding new admin' });
+        }
+        console.log('New admin has been created successfully');
+        res.redirect('/adminmanage')
+    });
+});
+
+
+/*router.post('/addadmin-submit', (req, res) => {
+    let admin = req.body;
+    const {id, username, fname, lname, email, password} = req.body;
+    console.log(admin);
+    if (!admin) {
+        return res.status(400).send({ error: true, message: 'Please provide admin information' });
+    }
+
+    const sql = `INSERT INTO Petdata VALUES (?, ?, ?, ?, ?, ?)`;
+    const values = [id,username,fname,lname,email,password];
+    connection.query(sql, values, function (error, results) {
         if (error) {
             console.error(error);
             return res.status(500).send({ error: true, message: 'Error adding new admin' });
@@ -148,7 +163,12 @@ router.post('/addadmin-submit', (req, res) => {
         console.log('New admin has been created successfully with id:', results.insertId);
         res.status(201).send({ success: true, message: 'New admin created', id: results.insertId });
     });
-});
+});*/
+
+/*const { Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image } = req.body;
+
+    const sql = `INSERT INTO Petdata (Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values = [Product_id,Pname,Pet_Category,Brand,Flavor,FoodType,price,quantity,image];*/
 
 
 router.get('/editadmin', (req, res) => {

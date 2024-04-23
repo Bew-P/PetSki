@@ -26,37 +26,72 @@
     <div id="idform">
       <h2 id="h2"><b>New User</b></h2>
       <h5 id="h5">Create your account</h5>
-      <form id="formC">
+      <form id="formC" action="/addadmin-submit" method="POST">
         <div class="rows">
           <div class="column">
             <label class="theLabels">First Name: </label>
-            <input class="theInputs" type="text" name="first_name" required><br>
+            <input class="theInputs" type="text" id="fname" name="fname" required><br>
 
           </div>
           <div class="column">
             <label class="theLabels">Last Name: </label>
-            <input class="theInputs" type="text" name="last_name" required><br>
+            <input class="theInputs" type="text" id="lname" name="lname" required><br>
           </div>
           <div class="column">
             <label class="theLabels">Email: </label>
-            <input class="theInputs" type="email" name="email" required><br>
+            <input class="theInputs" type="email" id="email" name="Admin_email" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabels">Username: </label>
+            <input class="theInputs" type="text" id="username" name="username" required><br>
+          </div>
+          <div class="column">
+            <label class="theLabels">ID: </label>
+            <input class="theInputs" type="text" id="id" name="id" required><br>
           </div>
           <div class="column">
             <label class="theLabels">Password: </label>
-            <input class="theInputs" type="password" name="password" required><br>
-          </div>
-          <div class="column">
-            <label class="theLabels">Confirm Password: </label>
-            <input class="theInputs" type="password" name="confirm_password" required><br>
+            <input class="theInputs" type="password" id="password" name="Admin_pw" required><br>
           </div>
         </div>
 
-        
+        <button class="button" id="submit-button" type="submit">ADD</button>
       </form>
-      <button class="button" type="submit">ADD</button>
+      
     </div>
     
   </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('submit-button').addEventListener("click", function() {
+        var fname = document.getElementById('fname').value;
+        var lname = document.getElementById('lname').value;
+        var email = document.getElementById('email').value;
+        var username = document.getElementById('username').value;
+        var id = document.getElementById('id').value;
+        var password = document.getElementById('password').value;
+
+        var adminData = {
+          'id': id,
+          'username': username,
+          'fname': fname,
+          'lname': lname,
+          'Admin_email': email,
+          'Admin_pw': password	
+        };
+
+        fetch('/addadmin-submit', {
+          method: 'POST',
+          headers: {
+            "Content-type": "application/json"
+          },
+        }).then(req => {
+          return JSON.stringify(adminData)
+        })
+      });
+    });
+
+  </script>
 
 </body>
 
