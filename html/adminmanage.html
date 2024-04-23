@@ -33,7 +33,7 @@
 
             <table>
                 
-                <tbody>
+                <thead>
                     <tr>
                     <th>ID</th>
                     <th>Name</th>
@@ -42,70 +42,29 @@
                     <th>EDIT</th>
                     <th>DELETE</th>
                     </tr>
-                    <tr>
-                        <td>87359</td>
-                        <td>Davis Walton</td>
-                        <td>Davis_W</td>
-                        <td>davis.admin@gmail.com</td>
-                        <td><a href="" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
-                    <tr>
-                        <td>87359</td>
-                        <td>Davis Walton</td>
-                        <td>Davis_W</td>
-                        <td>davis.admin@gmail.com</td>
-                        <td><a href="" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
-                    <tr>
-                        <td>87359</td>
-                        <td>Davis Walton</td>
-                        <td>Davis_W</td>
-                        <td>davis.admin@gmail.com</td>
-                        <td><a href="" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
-                    <tr>
-                        <td>87359</td>
-                        <td>Davis Walton</td>
-                        <td>Davis_W</td>
-                        <td>davis.admin@gmail.com</td>
-                        <td><a href="" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
-                    <tr>
-                        <td>87359</td>
-                        <td>Davis Walton</td>
-                        <td>Davis_W</td>
-                        <td>davis.admin@gmail.com</td>
-                        <td><a href="" class="btn_edit">
-                        <button>EDIT</button>
-                        </a></td>
-                        <td><a href="" class="btn_del">
-                        <button>DELETE</button>
-                        </a></td>
-                    </tr>
+                </thead>
+                <tbody id="admin">    
                 </tbody>
             </table>
         </article>
-
+        <script>
+            fetch('http://localhost:3000/api/admin')
+                .then(res => res.json())
+                .then(data => {
+                    var trHTML = '';
+                    data.forEach(user => {
+                        trHTML += '<tr>';
+                        trHTML += `<td>${user.id}</td>`;
+                        trHTML += `<td>${user.fname} ${user.lname}</td>`;
+                        trHTML += `<td>${user.fname}</td>`;
+                        trHTML += `<td>${user.Admin_email}</td>`;
+                        trHTML += `<td><a href="/editadmin" class="btn_edit"><button>EDIT</button></a></td>`;
+                        trHTML += `<td><a href="/adminmanage" class="btn_del"><button>DELETE</button></a></td>`;
+                    });
+                    document.getElementById('admin').innerHTML = trHTML;
+                })
+        </script>
+    </body>
         <footer>
             <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
             <br><h5>THANK YOU FOR YOUR MONEY</h5>
