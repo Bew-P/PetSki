@@ -192,14 +192,15 @@ router.get('/product-detail', (req, res) => {
         }
     });
 });
+
 router.post('/addproduct-submit', function (req, res) { 
     //console.log("Request Body:", req.body);
     let product = req.body.Product_id;
     console.log(product)
-    // if (!product) {
-    //     console.log("Error!");
-    //     return res.status(400).send({ error: true, message: 'Please provide product information' });
-    // }
+    if (!product) {
+        console.log("Error!");
+        return res.status(400).send({ error: true, message: 'Please provide product information' });
+    }
 
     const sql = "INSERT INTO Petdata ('Product_id', 'Pname', 'Pet_Category', 'Brand', 'Flavor', 'FoodType', 'price', 'quantity', 'image') VALUES " +
     [ 
