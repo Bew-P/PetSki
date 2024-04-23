@@ -311,6 +311,7 @@ router.delete('/adminmanage/:adminEmail', (req, res) => {
             return res.status(500).send('Error deleting admin login');
         }
 
+        connection.query('DELETE FROM Admininfo WHERE Admin_email = ?', adminEmail, (err, infoResult) => {
             if (err) {
                 console.error('Error deleting admin info:', err);
                 return res.status(500).send('Error deleting admin info');
