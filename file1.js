@@ -280,6 +280,34 @@ router.post('/addproduct-submit', function (req, res) {
         
     });
 });
+
+//delete
+router.delete('/deleteproduct/:productId', (req, res) => {
+    const productId = req.params.productId;
+
+    const sql = 'DELETE FROM Petdata WHERE Product_id = ?';
+
+    // Log the SQL query and the productId
+    console.log('Deleting product with ID:', productId);
+    console.log('SQL Query:', sql);
+
+    connection.query(sql, productId, (err, result) => {
+        if (err) {
+            console.error('Error deleting product:', err);
+            return res.status(500).send('Error deleting product');
+        }
+
+        // Check if any rows were affected
+        if (result.affectedRows === 0) {
+            console.log('No product deleted');
+            return res.status(404).send('No product deleted');
+        }
+
+        console.log('Product deleted successfully');
+        return res.status(200).send('Product has been deleted successfully');
+    });
+});
+
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {
     console.log("404: Invalid accessed");
