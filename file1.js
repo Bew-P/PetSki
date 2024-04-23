@@ -226,7 +226,43 @@ router.post('/adminmanage', (req, res) => {
 // Construct SQL query to fetch product details from the database
 const sql = 'SELECT * FROM Petdata WHERE Product_id = ?';
 
+
 //edited-producted
+//Testing 1 : edit product 
+//URL: http://localhost:3000/editproduct-submit
+//body:raw JSON
+//method :put
+//{
+//    "Product_id": "088567",
+//    "Pname": "Royal Canin Adult Mini Sterlised",
+//    "Pet_Category": "Dog",
+//      "Brand": "Royal Canin",
+//    "Flavor": "Pork",
+//    "FoodType": "Veterinarydiet",
+//    "price": "5000",
+//    "quantity": "10",
+//    "image": "https://github.com/Bew-P/PetSki/blob/main/Productimg/Royal_Canin_Adult_Mini_Sterlised1.jpeg?raw=true"
+//}
+
+
+//edited-producted
+
+//Testing 2 : edit product 
+//URL: http://localhost:3000/editproduct-submit
+//body:raw JSON
+//method :put
+//{
+//    "Product_id": "784534",
+//    "Pname": "Royal Canin Adult Mini Sterlised",
+//    "Pet_Category": "Dog",
+//    "Brand": "Royal Canin",
+//    "Flavor": "Chicken",
+//    "FoodType": "Dry",
+//    "price": "550",
+//    "quantity": "85",
+//   "image": "https://github.com/Bew-P/PetSki/blob/main/Productimg/Royal_Canin_dog1.jpeg?raw=true"
+//}
+
 router.put('/editproduct-submit', (req, res) => {
     console.log(req.url);
     console.log(req.body);
@@ -276,6 +312,25 @@ router.post('/addproduct-submit', function (req, res) {
 });
 
 //delete
+//delete-product
+//Testing 1 : delete product 
+//method :delete
+//URL: http://localhost:3000/deleteproduct/063745
+//body:raw JSON
+//
+//    {
+//        "Product_id": "063745"
+//    }
+
+//Testing 2 : delete product 
+//URL: http://localhost:3000/deleteproduct/496954
+//method :delete
+//body:raw JSON
+//
+//    {
+//        "Product_id": "496954"
+//    }
+
 router.delete('/deleteproduct/:productId', (req, res) => {
     const productId = req.params.productId;
 
@@ -302,6 +357,29 @@ router.delete('/deleteproduct/:productId', (req, res) => {
     });
 });
 
+//delete
+//delete-Admin
+//Testing 1 : delete Admin 
+//URL: http://localhost:3000/adminmanage/Ava.chen@gmail.com
+//method :delete
+//body:raw JSON
+//
+//    {
+//        "Admin_email": "Ava.chen@gmail.com"
+//    }
+
+//delete
+//delete-Admin
+//Testing 2 : delete Admin 
+//URL: http://localhost:3000/adminmanage/Isabella@gmail.com
+//method :delete
+//body:raw JSON
+//
+//    {
+//        "Admin_email": "Isabella@gmail.com"
+//    }
+
+
 router.delete('/adminmanage/:adminEmail', (req, res) => {
     const adminEmail = req.params.adminEmail;
 
@@ -311,6 +389,7 @@ router.delete('/adminmanage/:adminEmail', (req, res) => {
             return res.status(500).send('Error deleting admin login');
         }
 
+        connection.query('DELETE FROM Admininfo WHERE Admin_email = ?', adminEmail, (err, infoResult) => {
             if (err) {
                 console.error('Error deleting admin info:', err);
                 return res.status(500).send('Error deleting admin info');
