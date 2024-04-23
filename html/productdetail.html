@@ -19,22 +19,33 @@
         <a href="/team" name="about_as" class="nav_left">ABOUT US</a>
         <a href="/login" name="admin" class="nav_right"><i class="fa-regular fa-circle-user"></i></i></a>
         <!-- <a href="/adminmanage" name="edit" class="nav_right"><i class="fa-regular fa-pen-to-square"></i></a> -->
-    </nav>    
+    </nav>
 
     <div class="product-detail-container">
+
+        
+        <img src="" alt="" id="product-image" class="product-image">> <!-- Placeholder for product image -->
+
         <div class="product-detail">
-            <img src="" alt="" id="product-image"> <!-- Placeholder for product image -->
-            <h2 id="product-name"></h2> <!-- Placeholder for product name -->
-            <p id="product-price"></p> <!-- Placeholder for product price -->
+
+            <div class="product-info">
+                <h2 class="product-name" id="product-name"></h2> <!-- Placeholder for product name -->
+                <p class="product-price" id="product-price"></p> <!-- Placeholder for product price -->
+            </div>
+
             <!-- Quantity buttons -->
             <div class="qty-input">
                 <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
                 <input class="product-qty" type="number" name="product-qty" min="0" max="100" value="1">
                 <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
             </div>
+
             <!-- Buy button -->
             <button class="buy-button">Buy Now</button>
+
         </div>
+
+
     </div>
 
     <footer>
@@ -52,7 +63,7 @@
             fetch(`/product-detail?id=${productId}`)
                 .then((res) => res.json())
                 .then((product) => {
-                    
+
                     // Update product details on the page
                     document.getElementById('product-image').src = product.image;
                     document.getElementById('product-name').textContent = product.Pname;

@@ -45,6 +45,13 @@ router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
 
+router.get('/api/product', (req,res) => {
+    connection.query('SELECT * FROM Petdata', function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+})
+
 router.get('/product-submit', (req, res) => {
     let { search_pet, search_brand, search_flavor, search_type } = req.query;
 
@@ -102,7 +109,7 @@ router.get('/adminmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/adminmanage.html`))
 })
 
-router.get('/api/admin', (req,res) => {
+router.get('/api/admin', (req, res) => {
     connection.query('SELECT * FROM Admininfo', function (error, results) {
         if (error) throw error;
         res.json(results);
@@ -158,7 +165,7 @@ router.post('/adminmanage', (req, res) => {
     // Construct SQL query to check if email and password match in the database
     const sql = 'SELECT * FROM Admininfo WHERE Admin_email = ? AND Admin_pw = ?';
 
-    connection.query(sql, [email, password], function(error, results) {
+    connection.query(sql, [email, password], function (error, results) {
         if (error) {
             console.error("Error querying database: ", error);
             return res.status(500).json({ error: "Internal Server Error" });
