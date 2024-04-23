@@ -45,6 +45,13 @@ router.get('/products', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/product.html`))
 })
 
+router.get('/api/product', (req,res) => {
+    connection.query('SELECT * FROM Petdata', function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+})
+
 router.get('/product-submit', (req, res) => {
     let { search_pet, search_brand, search_flavor, search_type } = req.query;
 
@@ -102,7 +109,7 @@ router.get('/adminmanage', (req, res) => {
     res.sendFile(path.join(`${__dirname}/html/adminmanage.html`))
 })
 
-router.get('/api/admin', (req,res) => {
+router.get('/api/admin', (req, res) => {
     connection.query('SELECT * FROM Admininfo', function (error, results) {
         if (error) throw error;
         res.json(results);
@@ -158,7 +165,7 @@ router.post('/adminmanage', (req, res) => {
     // Construct SQL query to check if email and password match in the database
     const sql = 'SELECT * FROM Admininfo WHERE Admin_email = ? AND Admin_pw = ?';
 
-    connection.query(sql, [email, password], function(error, results) {
+    connection.query(sql, [email, password], function (error, results) {
         if (error) {
             console.error("Error querying database: ", error);
             return res.status(500).json({ error: "Internal Server Error" });
@@ -192,6 +199,32 @@ router.get('/product-detail', (req, res) => {
         }
     });
 });
+
+//edited-producted
+router.put('/editproduct-submit', (req, res) => {
+    console.log(req.url);
+    console.log(req.body);
+    const { Product_id, Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image } = req.body;
+
+    const sql = `UPDATE Petdata 
+                 SET Pname = ?, Pet_Category = ?, Brand = ?, Flavor = ?, FoodType = ?, price = ?, quantity = ?, image = ?
+                 WHERE Product_id = ?`;
+    const values = [Pname, Pet_Category, Brand, Flavor, FoodType, price, quantity, image, Product_id];
+    console.log('SQL:', sql);
+    console.log('Values:', values);
+
+    connection.query(sql, values, (err, result) => {
+        if (err) {
+            console.error('Error updating product:', err);
+            return res.status(500).send('Error updating product');
+        }
+
+        console.log('Product updated successfully');
+        return res.status(200).send('Product has been edited successfully');
+    });
+});
+
+
 
 /* Handle other unspecified paths */
 /*router.use((req, res, next) => {

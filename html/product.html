@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/css/product.css">
     <title>Product list</title>
 </head>
+
 <body>
     <nav>
         <img src="/images/LOGO.png" alt="Logo" name="logo" class="nav_left">
@@ -37,15 +39,39 @@
         </div>
     </div>
     <div class="product-container"></div>
+
     <footer>
         <p><i>"WHO FEED A HUNGRY ANIMAL, FEED HIS OWN SOUL."<br>-CHARLIE CHAPLIN</i></p>
         <br>
         <h5>THANK YOU FOR YOUR MONEY</h5>
     </footer>
     <script>
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const searchForm = document.getElementById('searchForm');
             const productContainer = document.querySelector('.product-container');
+
+
+            fetch('http://localhost:3000/api/product')
+                .then((res) => res.json())
+                .then((data) => {
+                    productContainer.innerHTML = ''; // Clear previous results
+                    data.forEach(product => {
+                        const productElement = document.createElement("div");
+                        productElement.className = "product";
+                        productElement.innerHTML = `
+                                <a href="/productdetail?Product_id=${product.Product_id}">
+                                    <img src="${product.image}" alt="${product.Pname}">
+                                </a>
+                                <h2>${product.Pname}</h2>
+                                <p>${product.price} THB</p>
+                            `;
+                        productContainer.appendChild(productElement);
+                    });
+                })
+
+
 
             searchForm.addEventListener('submit', function (event) {
                 event.preventDefault(); // Prevent form submission
@@ -75,4 +101,5 @@
         });
     </script>
 </body>
+
 </html>
